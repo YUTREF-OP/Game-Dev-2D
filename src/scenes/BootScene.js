@@ -31,20 +31,46 @@ export const TILE_INDEX = Object.freeze({
   SPIKES: 3,
 });
 
-// Data schemas from GDD.md section 5. Required keys must exist with the given type.
-const DATA_SCHEMAS = {
-  items: {
-    required: { id: 'string', name: 'string', type: 'string', value: 'number', description: 'string' },
-    optional: { atk: 'number' },
+// Data manifest from GDD.md section 7. Each file is loaded into the registry
+// under `registryKey`. Content is authored externally, so validation only checks
+// the top-level shape and cross-references, and reports problems as warnings.
+export const DATA_FILES = Object.freeze([
+  {
+    cacheKey: 'game_constants',
+    registryKey: 'gameConstants',
+    required: { schema_version: 'string', dive_rules: 'object', cargo_rules: 'object', core_quality_tiers: 'object', economy_baselines: 'object' },
   },
-  enemies: {
-    required: {
-      id: 'string', name: 'string', hp: 'number', atk: 'number', def: 'number',
-      xp: 'number', ai: 'string', drops: 'array',
-    },
-    optional: {},
+  {
+    cacheKey: 'player_pilot_and_tank',
+    registryKey: 'playerPilotAndTank',
+    required: { schema_version: 'string', pilot: 'object', tank_shroud: 'object' },
   },
-};
+  {
+    cacheKey: 'weapons_and_systems',
+    registryKey: 'weaponsAndSystems',
+    required: { schema_version: 'string', weapons: 'array', systems: 'array' },
+  },
+  {
+    cacheKey: 'monsters_starter_roster',
+    registryKey: 'monstersStarterRoster',
+    required: { schema_version: 'string', starter_entities: 'array' },
+  },
+  {
+    cacheKey: 'monsters_roster',
+    registryKey: 'monstersRoster',
+    required: { schema_version: 'string', entries: 'array' },
+  },
+  {
+    cacheKey: 'world_factions_and_swarms',
+    registryKey: 'worldFactionsAndSwarms',
+    required: { schema_version: 'string', major_swarms_and_colonies: 'array' },
+  },
+  {
+    cacheKey: 'salvage_and_economy',
+    registryKey: 'salvageAndEconomy',
+    required: { schema_version: 'string', condition_multipliers: 'object', cradlehook_recovery_tariffs: 'object', surface_salvage_table: 'array' },
+  },
+]);
 
 // ---------------------------------------------------------------------------
 // Pixel maps. One character = one pixel; '.' is transparent.
@@ -390,39 +416,41 @@ function typeOfValue(value) {
   return typeof value;
 }
 
-// Validates a /data JSON array against its schema. Invalid entries are skipped
-// (with a console warning) so bad external content never crashes the game.
-function validateDataset(key, raw, warnings) {
-  const schema = DATA_SCHEMAS[key];
-  if (!Array.isArray(raw)) {
-    warnings.push(`${key}.json: expected a top-level array, got ${typeOfValue(raw)}.`);
-    return [];
+// Checks a data file's top-level keys. Returns the data (or null if unusable).
+function validateDataFile(spec, raw, warnings) {
+  const file = `${spec.cacheKey}.json`;
+  if (typeOfValue(raw) !== 'object') {
+    warnings.push(`${file}: expected a top-level object, got ${typeOfValue(raw)}.`);
+    return null;
   }
-  const seen = new Set();
-  const valid = [];
-  raw.forEach((entry, i) => {
-    const label = `${key}.json[${i}]${entry && entry.id ? ` (${entry.id})` : ''}`;
-    if (typeOfValue(entry) !== 'object') {
-      warnings.push(`${label}: entry is not an object.`);
-      return;
-    }
-    const problems = [];
-    Object.entries(schema.required).forEach(([field, type]) => {
-      if (!(field in entry)) problems.push(`missing "${field}"`);
-      else if (typeOfValue(entry[field]) !== type) problems.push(`"${field}" should be ${type}`);
-    });
-    Object.entries(schema.optional).forEach(([field, type]) => {
-      if (field in entry && typeOfValue(entry[field]) !== type) problems.push(`"${field}" should be ${type}`);
-    });
-    if (typeof entry.id === 'string' && seen.has(entry.id)) problems.push(`duplicate id "${entry.id}"`);
-    if (problems.length > 0) {
-      warnings.push(`${label}: ${problems.join(', ')} — entry skipped.`);
-      return;
-    }
-    seen.add(entry.id);
-    valid.push(Object.freeze({ ...entry }));
+  Object.entries(spec.required).forEach(([field, type]) => {
+    if (!(field in raw)) warnings.push(`${file}: missing top-level "${field}".`);
+    else if (typeOfValue(raw[field]) !== type) warnings.push(`${file}: "${field}" should be ${type}.`);
   });
-  return valid;
+  return raw;
+}
+
+// Builds an id -> entry Map, warning about entries without an id or with duplicates.
+function indexById(list, label, warnings) {
+  const map = new Map();
+  (Array.isArray(list) ? list : []).forEach((entry, i) => {
+    if (!entry || typeof entry.id !== 'string') {
+      warnings.push(`${label}[${i}]: entry has no string "id".`);
+      return;
+    }
+    if (map.has(entry.id)) warnings.push(`${label}: duplicate id "${entry.id}".`);
+    map.set(entry.id, entry);
+  });
+  return map;
+}
+
+// Recursively freezes parsed JSON so game code can't mutate shared content.
+function deepFreeze(value) {
+  if (value && typeof value === 'object' && !Object.isFrozen(value)) {
+    Object.freeze(value);
+    Object.values(value).forEach(deepFreeze);
+  }
+  return value;
 }
 
 // ---------------------------------------------------------------------------
@@ -441,8 +469,7 @@ export default class BootScene extends Phaser.Scene {
     });
 
     // Relative paths only (GitHub Pages subpath hosting).
-    this.load.json('items', './data/items.json');
-    this.load.json('enemies', './data/enemies.json');
+    DATA_FILES.forEach(({ cacheKey }) => this.load.json(cacheKey, `./data/${cacheKey}.json`));
   }
 
   create() {
@@ -457,30 +484,73 @@ export default class BootScene extends Phaser.Scene {
 
   registerData() {
     const warnings = [];
-    this.failedFiles.forEach((key) => warnings.push(`${key}.json failed to load — using an empty list.`));
+    this.failedFiles.forEach((key) => warnings.push(`${key}.json failed to load.`));
 
-    const items = validateDataset('items', this.cache.json.get('items') ?? [], warnings);
-    const enemies = validateDataset('enemies', this.cache.json.get('enemies') ?? [], warnings);
-
-    const itemsById = new Map(items.map((item) => [item.id, item]));
-    const enemiesById = new Map(enemies.map((enemy) => [enemy.id, enemy]));
-
-    // Cross-reference: every enemy drop must point at a known item id.
-    enemies.forEach((enemy) => {
-      enemy.drops.forEach((dropId) => {
-        if (!itemsById.has(dropId)) warnings.push(`enemies.json (${enemy.id}): drop "${dropId}" is not in items.json.`);
-      });
+    const data = {};
+    DATA_FILES.forEach((spec) => {
+      const raw = this.failedFiles.includes(spec.cacheKey) ? null : this.cache.json.get(spec.cacheKey);
+      data[spec.registryKey] = raw === null || raw === undefined ? null : deepFreeze(validateDataFile(spec, raw, warnings));
+      this.registry.set(spec.registryKey, data[spec.registryKey]);
     });
 
-    warnings.forEach((w) => console.warn(`[data] ${w}`));
+    // Lookup tables for the id-keyed content.
+    const weaponsById = indexById(data.weaponsAndSystems?.weapons, 'weapons_and_systems.weapons', warnings);
+    const systemsById = indexById(data.weaponsAndSystems?.systems, 'weapons_and_systems.systems', warnings);
+    const monstersById = indexById(data.monstersRoster?.entries, 'monsters_roster.entries', warnings);
+    const starterById = indexById(data.monstersStarterRoster?.starter_entities, 'monsters_starter_roster.starter_entities', warnings);
+    const swarmsById = indexById(data.worldFactionsAndSwarms?.major_swarms_and_colonies, 'world_factions_and_swarms', warnings);
+    const salvageById = indexById(data.salvageAndEconomy?.surface_salvage_table, 'salvage_and_economy.surface_salvage_table', warnings);
 
-    this.registry.set('items', items);
-    this.registry.set('enemies', enemies);
-    this.registry.set('itemsById', itemsById);
-    this.registry.set('enemiesById', enemiesById);
+    this.registry.set('weaponsById', weaponsById);
+    this.registry.set('systemsById', systemsById);
+    this.registry.set('monstersById', monstersById);
+    this.registry.set('starterMonstersById', starterById);
+    this.registry.set('swarmsById', swarmsById);
+    this.registry.set('salvageById', salvageById);
+
+    this.crossCheckData(data, { weaponsById, systemsById, monstersById, starterById }, warnings);
+
+    warnings.forEach((w) => console.warn(`[data] ${w}`));
     this.registry.set('dataWarnings', warnings);
 
-    console.info(`[data] Loaded ${items.length} item(s) and ${enemies.length} enemy type(s).`);
+    console.info(
+      `[data] Loaded ${monstersById.size} monster(s) (${starterById.size} starter), `
+      + `${weaponsById.size} weapon(s), ${systemsById.size} system(s), ${swarmsById.size} swarm(s); `
+      + `${warnings.length} warning(s).`,
+    );
+  }
+
+  // Reports references between files that don't resolve. Never modifies content.
+  crossCheckData(data, maps, warnings) {
+    const { weaponsById, systemsById, monstersById, starterById } = maps;
+
+    if (monstersById.size > 0) {
+      starterById.forEach((monster, id) => {
+        if (!monstersById.has(id)) warnings.push(`monsters_starter_roster: "${id}" is not in monsters_roster.json.`);
+      });
+      const expected = data.monstersRoster?.counts?.entries;
+      if (typeof expected === 'number' && expected !== monstersById.size) {
+        warnings.push(`monsters_roster: counts.entries says ${expected} but ${monstersById.size} entries were found.`);
+      }
+    }
+
+    const tank = data.playerPilotAndTank?.tank_shroud;
+    if (tank) {
+      ['starter_configuration_ll0', 'midgame_configuration_ll6'].forEach((configKey) => {
+        const config = tank[configKey];
+        if (!config) return;
+        Object.entries(config.equipped_weapons ?? {}).forEach(([mount, weaponId]) => {
+          if (weaponId !== null && !weaponsById.has(weaponId)) {
+            warnings.push(`player_pilot_and_tank: ${configKey}.${mount} "${weaponId}" is not in weapons_and_systems.json.`);
+          }
+        });
+        (config.equipped_systems ?? []).forEach((systemId) => {
+          if (!systemsById.has(systemId)) {
+            warnings.push(`player_pilot_and_tank: ${configKey} system "${systemId}" is not in weapons_and_systems.json.`);
+          }
+        });
+      });
+    }
   }
 
   // --- Textures -------------------------------------------------------------

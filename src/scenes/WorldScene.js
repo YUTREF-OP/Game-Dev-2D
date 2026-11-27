@@ -34,7 +34,7 @@ const LEVEL = {
   dummies: [[22, 13], [46, 13], [70, 4], [101, 8], [109, 13]], // [col, surfaceRow]
   checkpoints: [[2, 13], [31, 13], [57, 13], [88, 13]], // first one is the spawn
   signs: [
-    { col: 9, row: 4, text: 'BROKE WORLD - M1 SANDBOX' },
+    { col: 9, row: 4, text: 'BROKEN FIRMAMENT - M1 SANDBOX' },
     { col: 6, row: 9, text: 'DOWN+JUMP: DROP' },
     { col: 22, row: 10, text: 'DASH THROUGH DUMMIES' },
     { col: 52, row: 9, text: 'JUMP+DASH!' },

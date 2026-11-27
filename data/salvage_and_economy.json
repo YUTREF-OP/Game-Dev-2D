@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0.0",
+  "condition_multipliers": {
+    "Pristine": {
+      "multiplier": 1.0,
+      "description": "Minimal structural/thermal damage (e.g., cognitive takedown or surgical disablement)."
+    },
+    "Damaged": {
+      "multiplier": 0.65,
+      "description": "Moderate kinetic/energy scarring; Core intact, outer plating breached."
+    },
+    "Degraded": {
+      "multiplier": 0.35,
+      "description": "Heavy explosive/thermal damage; significant component loss."
+    },
+    "Critically Damaged": {
+      "multiplier": 0.15,
+      "description": "Catastrophic structural ruin; Core recoverable at reduced efficiency."
+    }
+  },
+  "cradlehook_recovery_tariffs": {
+    "regional_standby_per_hour_cr": 600,
+    "minimum_standby_hours": 1,
+    "standard_carcass_extraction_cr": 2000,
+    "oversized_colossal_special_order_cr": 80000,
+    "corewright_certification_fee_per_core_cr": 2250,
+    "auction_house_royalty_rate": 0.1
+  },
+  "surface_salvage_table": [
+    {
+      "id": "salvage_preserved_rations",
+      "name": "Sealed Military Ration Crate",
+      "size_class": "Big",
+      "cu": 2,
+      "base_value_cr": 120,
+      "tags": [
+        "Food",
+        "Consumable"
+      ]
+    },
+    {
+      "id": "salvage_20mm_ammo",
+      "name": "20 × 102 mm AP Match Ammo Case",
+      "size_class": "Small",
+      "cu": 1,
+      "base_value_cr": 350,
+      "tags": [
+        "Ammunition",
+        "Military"
+      ]
+    },
+    {
+      "id": "salvage_actuator_assembly",
+      "name": "Pre-War Hydraulic Servo Actuator",
+      "size_class": "Big",
+      "cu": 2,
+      "base_value_cr": 900,
+      "tags": [
+        "Tank Part",
+        "Industrial"
+      ]
+    },
+    {
+      "id": "salvage_sensor_matrix",
+      "name": "Military Tri-Spectrum Optics Module",
+      "size_class": "Small",
+      "cu": 1,
+      "base_value_cr": 1400,
+      "tags": [
+        "Electronics",
+        "Rare"
+      ]
+    },
+    {
+      "id": "salvage_gas_cylinder",
+      "name": "Pressurized Helium-3/Lifting Gas Flask",
+      "size_class": "Large",
+      "cu": 6,
+      "base_value_cr": 2200,
+      "tags": [
+        "Lifting Gas",
+        "Strategic"
+      ]
+    },
+    {
+      "id": "salvage_dday_archive",
+      "name": "Encrypted Pre-D-Day Research Drive",
+      "size_class": "Small",
+      "cu": 1,
+      "base_value_cr": 5000,
+      "tags": [
+        "Intelligence",
+        "Artifact"
+      ]
+    }
+  ]
+}

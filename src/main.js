@@ -60,7 +60,7 @@ async function boot() {
   };
 
   // Exposed for console debugging only; game code never reads this global.
-  window.__BROKE_WORLD__ = new Phaser.Game(config);
+  window.__BROKEN_FIRMAMENT__ = new Phaser.Game(config);
 }
 
 boot().catch((err) => {

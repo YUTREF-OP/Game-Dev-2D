@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0.0",
+  "major_swarms_and_colonies": [
+    {
+      "id": "jaeger",
+      "name": "Jaeger Hunting Swarm",
+      "type": "Mobile Swarm",
+      "operating_model": "mobile_flock",
+      "anchor_location": "Mobile Salvage Corridors",
+      "key_facilities": [
+        "Iron Kennel Tankwrights",
+        "Corevault Labs",
+        "Aegis Perch Public Auction House",
+        "Cradlehook Recovery Fleet"
+      ],
+      "specialty": "High-risk monster hunting, custom Tank fabrication, Core certification, and salvage auctions."
+    },
+    {
+      "id": "cinder_crown",
+      "name": "Cinder Crown Geothermal Swarm",
+      "type": "Location-Locked Swarm",
+      "operating_model": "location_locked_community",
+      "anchor_location": "Mount Merapi, Central Java, Indonesia",
+      "population_estimate": 18600,
+      "member_flocks": [
+        "Caldera Heart",
+        "Blackkiln",
+        "Gaslight Works",
+        "Ashgarden",
+        "Ember Exchange"
+      ],
+      "specialty": "Volcanic geothermal electricity, heavy metallurgy, lifting-gas purification, and industrial manufacturing."
+    },
+    {
+      "id": "aquos",
+      "name": "Aquos Freshwater Swarm",
+      "type": "Location-Locked Swarm",
+      "operating_model": "location_locked_community",
+      "anchor_location": "Lake Superior, North America",
+      "population_estimate": 52000,
+      "member_flocks": [
+        "Bluewell",
+        "Clearwake",
+        "Greenwake",
+        "Deepglass",
+        "Turbine Crown",
+        "Rainvault",
+        "Reedlight Gardens",
+        "Northcurrent",
+        "Glassfilter",
+        "Flowmarket",
+        "Whitecap Works",
+        "Stillline Commons"
+      ],
+      "specialty": "Deep-water purification, hydrokinetic turbine power, and large-scale hydroponic agriculture."
+    },
+    {
+      "id": "maverick",
+      "name": "Maverick Carrier Colony",
+      "type": "Colony",
+      "operating_model": "mobile_flock",
+      "anchor_location": "Major Inter-Swarm Trade Routes",
+      "specialty": "Heavy carrier vessels, expeditionary air logistics, and high-grade Core procurement."
+    },
+    {
+      "id": "chandelier",
+      "name": "Chandelier",
+      "type": "Colony / Swarm",
+      "operating_model": "mobile_flock",
+      "anchor_location": "High-Altitude Trade Lanes",
+      "specialty": "Vertically suspended architecture, precision optics, and high-value trade brokerage."
+    },
+    {
+      "id": "dauntless",
+      "name": "Dauntless",
+      "type": "Location-Locked Colony",
+      "operating_model": "location_locked_community",
+      "anchor_location": "Fortified Continental Anchor",
+      "specialty": "Heavy armor doctrine, anti-factory military coordination, and fortified perimeter defense."
+    },
+    {
+      "id": "apex",
+      "name": "Apex Colony",
+      "type": "Colony",
+      "operating_model": "mobile_flock",
+      "anchor_location": "Strategic Sky Corridors",
+      "specialty": "Advanced pre-D-Day technology archives, high-capital commerce, and Tier IV+ Core acquisition."
+    }
+  ]
+}

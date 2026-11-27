@@ -1,0 +1,3270 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "the_broken_firmament_lancer_monster_roster",
+  "description": "Roster-wide conversion index. Setting threat tier is distinct from Lancer NPC tier. Core stats follow selected official Lancer NPC class/tier. Tactical size is the proposed map-footprint override recorded in the conversion master.",
+  "source_documents": [
+    {
+      "file": "Broken_Firmament_Lancer_Monster_Conversion_Master.md",
+      "role": "monster assignments and lore-to-mechanics notes"
+    },
+    {
+      "file": "Lancer_Core_Rulebook_Numerical_Review_Working_Copy.md",
+      "role": "layout-preserved reference for official NPC core stat blocks"
+    }
+  ],
+  "counts": {
+    "entries": 116,
+    "class_and_tier_assigned": 115,
+    "unassigned_unknown": 1
+  },
+  "entries": [
+    {
+      "id": "candlebug",
+      "name": "Candlebug",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Local route marking; status signaling",
+        "conversion_note": "Utility profile: remove baseline weapons; retain only its documented sensing/marking function. No attack is added unless the lore documents one."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "chalkstep",
+      "name": "Chalkstep",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Terrain and route surveying",
+        "conversion_note": "Utility profile: remove baseline weapons; retain only its documented sensing/marking function. No attack is added unless the lore documents one."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "clatterhorn",
+      "name": "Clatterhorn",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Berserker",
+        "tier": 1,
+        "core_stats": {
+          "hp": 12,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 6,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 10,
+          "sensors": 5,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Impact harassment; dispersal of intruders",
+        "conversion_note": "Use rush/melee baseline; knockback or prone uses standard action resolution."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "clickerjack",
+      "name": "Clickerjack",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Calibration of joints and moving assemblies",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crateback",
+      "name": "Crateback",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport of boxed components and intact equipment",
+        "conversion_note": "Utility-hauler profile: remove baseline weapons; represent load movement and route obstruction as scene interactions, not extra combat damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crowbarling",
+      "name": "Crowbarling",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Obstacle forcing; damage to external mechanisms",
+        "conversion_note": "Use low-tier breacher baseline; improvised structural damage does not equal free Tank damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "dartmuzzle",
+      "name": "Dartmuzzle",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Sniper",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Harassment fire; exposed-target suppression",
+        "conversion_note": "Use ranged precision baseline; ammunition/penetration follows the described weapon, not unmodified sniper lethality if incompatible."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "dustling",
+      "name": "Dustling",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Environmental sampling; contamination assessment",
+        "conversion_note": "Utility profile: remove baseline weapons; retain only its documented sensing/marking function. No attack is added unless the lore documents one."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "embergnaw",
+      "name": "Embergnaw",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Berserker",
+        "tier": 1,
+        "core_stats": {
+          "hp": 12,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 6,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 10,
+          "sensors": 5,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Optical disruption; denial of close access",
+        "conversion_note": "Use close-range striker baseline; fire/heat effects are limited to documented attacks."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "flickerjack",
+      "name": "Flickerjack",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Ace",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Sensor dazzle; target misdirection",
+        "conversion_note": "Use mobility baseline; rapid repositioning is not invisibility or teleportation unless stated."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "foldmark",
+      "name": "Foldmark",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Specter",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 5,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Surface mimicry; purpose undetermined",
+        "conversion_note": "Mimicry profile: concealment is imperfect; a pinch/contact effect is not an unprovoked attack."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "glinttick",
+      "name": "Glinttick",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Visual observation; target tracking",
+        "conversion_note": "Utility profile: remove baseline weapons; retain only its documented sensing/marking function. No attack is added unless the lore documents one."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "hushcoin",
+      "name": "Hushcoin",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Mirage",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 12,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Acoustic recording and replay; purpose undetermined",
+        "conversion_note": "Noncombat anomaly profile: remove attacks; acoustic replay is a scene clue/effect, and its purpose remains unknown."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "huskpicker",
+      "name": "Huskpicker",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Sorting recoverable components from damaged machines and processed remains",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "knucklebite",
+      "name": "Knucklebite",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Gripping attacks; equipment interference",
+        "conversion_note": "Use gripping close-attack baseline; joint interference applies only on a successful hit."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "knucklecart",
+      "name": "Knucklecart",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Clearing light debris; moving small salvage piles",
+        "conversion_note": "Utility-hauler profile: remove baseline weapons; represent load movement and route obstruction as scene interactions, not extra combat damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "menderling",
+      "name": "Menderling",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Replacement of small mechanical components",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "nighthook",
+      "name": "Nighthook",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Overhead ambush; close-range grappling",
+        "conversion_note": "Use concealment and close-grapple baseline; a hook does not guarantee attachment or disablement."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "patchmason",
+      "name": "Patchmason",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Filling cracks; patching minor structural damage",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "pebblejack",
+      "name": "Pebblejack",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Collection of stone, concrete, and mineral fragments",
+        "conversion_note": "Utility-hauler profile: remove baseline weapons; represent load movement and route obstruction as scene interactions, not extra combat damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "rivetgnat",
+      "name": "Rivetgnat",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Minor structural patching; fastening installation",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "sackbarrow",
+      "name": "Sackbarrow",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Small scrap collection; local transport",
+        "conversion_note": "Utility-hauler profile: remove baseline weapons; represent load movement and route obstruction as scene interactions, not extra combat damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "scraphopper",
+      "name": "Scraphopper",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Close-range harassment; pursuit interruption",
+        "conversion_note": "Use light ambush/harassment baseline; attacks target exposed fittings rather than main armor."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "siltbell",
+      "name": "Siltbell",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 1,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 13,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Structural vibration response; purpose undetermined",
+        "conversion_note": "Environmental response profile: vibration-triggered tones are a scene effect; no offensive ability is assumed."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "slabmule",
+      "name": "Slabmule",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport of panels, sheet metal, and flat components",
+        "conversion_note": "Utility-hauler profile: remove baseline weapons; represent load movement and route obstruction as scene interactions, not extra combat damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "slurrylicker",
+      "name": "Slurrylicker",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Collection of organic residue for processing",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "sootbrush",
+      "name": "Sootbrush",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Cleaning of sensors, lenses, and inspection surfaces",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "spindlecat",
+      "name": "Spindlecat",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Ace",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Flanking; short-range slashing",
+        "conversion_note": "Use agile skirmisher baseline; reskin movement/weaponry to match its documented leap pattern."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "spooler",
+      "name": "Spooler",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport of wire, cable, and flexible industrial stock",
+        "conversion_note": "Utility-hauler profile: remove baseline weapons; represent load movement and route obstruction as scene interactions, not extra combat damage."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "stitcher",
+      "name": "Stitcher",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Repair of exposed biological components",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons and any contradictory combat systems; only documented tools or maintenance behavior can affect a target."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "tinmoth",
+      "name": "Tinmoth",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Close-range environmental mapping; inspection of narrow passages",
+        "conversion_note": "Utility profile: remove baseline weapons; retain only its documented sensing/marking function. No attack is added unless the lore documents one."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "tripwire_leech",
+      "name": "Tripwire Leech",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Movement restriction; route denial",
+        "conversion_note": "Use ambush/control baseline; tripwire affects movement only when its stated trigger is met."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "warmprint",
+      "name": "Warmprint",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Mirage",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 12,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Thermal-pattern generation; purpose undetermined",
+        "conversion_note": "Noncombat anomaly profile: thermal traces are false clues; hot vapor is only a close-contact hazard as documented."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "wiremouse",
+      "name": "Wiremouse",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 1
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Cable, conduit, and infrastructure inspection",
+        "conversion_note": "Utility profile: remove baseline weapons; retain only its documented sensing/marking function. No attack is added unless the lore documents one."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "ashspitter",
+      "name": "Ashspitter",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Bombard",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 7,
+          "e_defense": 12,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 11,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Sensor suppression; approach concealment",
+        "conversion_note": "Use light indirect/ranged baseline; area effects are limited to the described ammunition footprint."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "borrowed_face",
+      "name": "Borrowed Face",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Specter",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Multi-spectrum silhouette imitation; purpose undetermined",
+        "conversion_note": "Silhouette-mimic profile; it does not copy exact identity or perfect appearance unless new evidence establishes it."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "bulwark_nipper",
+      "name": "Bulwark Nipper",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Bastion",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 3,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 8,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Route denial; close-range limb attacks",
+        "conversion_note": "Use armor/defense baseline; retain defensive role and avoid adding heavy offensive output."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "chaffram",
+      "name": "Chaffram",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Shredding light scrap; preparing feedstock",
+        "conversion_note": "Utility-maintenance profile: remove baseline weapons; shredding scrap and feedstock preparation are work interactions, not attacks against targets."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "chainback",
+      "name": "Chainback",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Goliath",
+        "tier": 1,
+        "core_stats": {
+          "hp": 25,
+          "armor": 0,
+          "evasion": 6,
+          "e_defense": 6,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 11,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Dragging heavy loads; temporary anchoring",
+        "conversion_note": "Use durable hauling baseline; any drag/chain effect is limited to the documented load-handling function."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "cinderpack",
+      "name": "Cinderpack",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Cataphract",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 8,
+          "heat_cap": 6,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport of warm scrap and furnace",
+        "conversion_note": "Use mobile carrier baseline; carried material effects require an explicit scene trigger."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "clampjaw",
+      "name": "Clampjaw",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Holding components during repair; temporary",
+        "conversion_note": "Tool-based utility profile; clamp is an interaction/control effect, not automatic structural destruction."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "clutchworm",
+      "name": "Clutchworm",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Immobilization; close-range restraint",
+        "conversion_note": "Use attachment/control baseline; a successful attack can restrict a joint but not destroy the target automatically."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "coil_harrier",
+      "name": "Coil Harrier",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 1,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 13,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "External-system disruption; pursuit support",
+        "conversion_note": "Use close tech-disruption baseline; electronics interference affects only the systems described in the source."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crossbolt",
+      "name": "Crossbolt",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Archer",
+        "tier": 1,
+        "core_stats": {
+          "hp": 16,
+          "armor": 0,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 11,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Suppressive fire; denial of exposed approaches",
+        "conversion_note": "Use accurate ranged baseline; reskin projectiles to documented spike/penetrator attacks."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "furnace_tick",
+      "name": "Furnace Tick",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Heating, curing, and thermal treatment of",
+        "conversion_note": "Use utility baseline; heat or hot-material hazards are only those described in the source."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "glassmantle",
+      "name": "Glassmantle",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Specter",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 5,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Passive observation; concealment",
+        "conversion_note": "Use stealth and evasive features as the baseline; camouflage is imperfect, not invisibility."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "gutter_choir",
+      "name": "Gutter Choir",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 1,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 13,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Distributed resonance and acoustic interference; purpose undetermined",
+        "conversion_note": "Distributed acoustics profile; restrict interference to sound localization/communication as documented."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "hookcart",
+      "name": "Hookcart",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Cataphract",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 8,
+          "heat_cap": 6,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Retrieval of tangled or irregular scrap",
+        "conversion_note": "Use mobility as the baseline; replace incompatible attack with documented towing/grappling interaction."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "houndbreaker",
+      "name": "Houndbreaker",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Berserker",
+        "tier": 2,
+        "core_stats": {
+          "hp": 16,
+          "armor": 1,
+          "evasion": 9,
+          "e_defense": 6,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Pursuit; retreat-route disruption",
+        "conversion_note": "Use pursuit/melee baseline; pursue only targets its lore says it tracks."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "ironback_dray",
+      "name": "Ironback Dray",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Goliath",
+        "tier": 1,
+        "core_stats": {
+          "hp": 25,
+          "armor": 0,
+          "evasion": 6,
+          "e_defense": 6,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 11,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Heavy scrap transport; obstacle pushing",
+        "conversion_note": "Use durable transport chassis; cargo, load, and route effects are scenario interactions."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "lanternback",
+      "name": "Lanternback",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Mirage",
+        "tier": 1,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 12,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Night observation; route surveillance",
+        "conversion_note": "Use the class as the sensor/decoy baseline; limit deception to the documented behavior."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "latchfall",
+      "name": "Latchfall",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Attachment and temporary obstruction of machinery; purpose undetermined",
+        "conversion_note": "Attachment/sabotage profile; it can obstruct exposed mechanisms only after attachment and successful resistance checks."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "needleback_skirmisher",
+      "name": "Needleback Skirmisher",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Assault",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 8,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Harassment; disabling exposed equipment",
+        "conversion_note": "Use Assault baseline; replace its rifle with a lore-matching skirmish weapon of comparable class."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "needlewing",
+      "name": "Needlewing",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Hornet",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 16,
+          "e_defense": 6,
+          "speed": 6,
+          "heat_cap": 5,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Pursuit tracking; close-range target marking",
+        "conversion_note": "Use mobility/evasion as the baseline; reskin its weapon only if the lore documents an attack."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "patchspider",
+      "name": "Patchspider",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 1,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 7,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 10,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Panel installation; distributed structural",
+        "conversion_note": "Use engineer baseline for field repair/deployables; do not create additional units unless the source says so."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "rakecrawler",
+      "name": "Rakecrawler",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Interception; disruption of retreating",
+        "conversion_note": "Use ambush/close-attack baseline; exposed-component attacks are represented by a trait, not automatic Tank disablement."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "rattlehound",
+      "name": "Rattlehound",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Ground tracking; short-range pursuit",
+        "conversion_note": "Use the scout baseline for tracking and approach; do not assume it can relay or summon units unless stated."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "rivetmaw",
+      "name": "Rivetmaw",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 1,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 7,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 10,
+          "sensors": 15,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Cutting damaged metal; replacing structural",
+        "conversion_note": "Industrial-tool profile; reskin or remove weaponry, with documented fastening/cutting behavior only."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "rookguard",
+      "name": "Rookguard",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Bastion",
+        "tier": 2,
+        "core_stats": {
+          "hp": 10,
+          "armor": 3,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 10,
+          "save_target": 10,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Chokepoint defense; forced-route denial",
+        "conversion_note": "Use defensive chokepoint baseline; the guarded zone is defined by a map position or explicit trait."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "sawtooth_mantis",
+      "name": "Sawtooth Mantis",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Ronin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 18,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 7,
+          "speed": 5,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Flanking strikes; exposed-component cutting",
+        "conversion_note": "Use fast melee baseline; its multi-cut behavior does not generate extra attacks beyond the class/action rules."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "scentledger",
+      "name": "Scentledger",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 1,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 10,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 11,
+          "sensors": 20,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Biomass detection; trail marking",
+        "conversion_note": "Use the scout baseline for tracking and target acquisition; do not add direct combat capability beyond the lore."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "scissorback",
+      "name": "Scissorback",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Ronin",
+        "tier": 1,
+        "core_stats": {
+          "hp": 18,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 7,
+          "speed": 5,
+          "heat_cap": 7,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Cable and limb disabling; close-range ambush",
+        "conversion_note": "Use mobile melee baseline; cutting effects apply only to described vulnerable targets."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "screamcoil",
+      "name": "Screamcoil",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 1,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 13,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Sensor and communication disruption; target disorientation",
+        "conversion_note": "Use low-tier controller baseline; acoustic disruption uses a save and a bounded condition, not blanket electronics shutdown."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "siltroller",
+      "name": "Siltroller",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Cataphract",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 0,
+          "evasion": 10,
+          "e_defense": 8,
+          "speed": 8,
+          "heat_cap": 6,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Slurry transport; debris clearance",
+        "conversion_note": "Use mobile hauling baseline; no extra damage from carried material unless the attack is described."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "slagspitter",
+      "name": "Slagspitter",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 1,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 7,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 10,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Disposal of waste residue; surface coating",
+        "conversion_note": "Use industrial chassis; reskin a weapon only to match the documented material spray."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "suturejack",
+      "name": "Suturejack",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 1,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 8,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 10,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Tissue binding; sealing of biomechanical",
+        "conversion_note": "Maintenance support baseline; repair effect must be limited by action and target availability."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "torquejaw",
+      "name": "Torquejaw",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 2
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Limb immobilization; close-quarter grappling",
+        "conversion_note": "Use heavy close-attack baseline; high torque affects a joint only after a successful attack/effect."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "arcspitter",
+      "name": "Arcspitter",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 2,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 16,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Electronics disruption; ranged anti-equipment attack; denial of powered machinery",
+        "conversion_note": "Use tech/electrical disruption baseline; secondary arcs are conditional and never assumed to jump unlimited targets."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "bastion_hound",
+      "name": "Bastion Hound",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Berserker",
+        "tier": 2,
+        "core_stats": {
+          "hp": 16,
+          "armor": 1,
+          "evasion": 9,
+          "e_defense": 6,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Direct assault; protection of industrial assets",
+        "conversion_note": "Use pursuit/melee baseline; only documented rush and close-attack behaviors are added."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "blackkite",
+      "name": "Blackkite",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Scout",
+        "tier": 2,
+        "core_stats": {
+          "hp": 8,
+          "armor": 0,
+          "evasion": 15,
+          "e_defense": 13,
+          "speed": 7,
+          "heat_cap": 6,
+          "save_target": 13,
+          "sensors": 20,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Long-range tracking; contact relay; pursuit coordination",
+        "conversion_note": "Reconnaissance baseline; translate documented tracking/positioning into Lock On or a bounded trait."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "chainreaver",
+      "name": "Chainreaver",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Cable recovery; extraction of embedded industrial components",
+        "conversion_note": "Use close-range dismantling baseline; heavy removal of obstacles is resolved as an action/scene effect."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "cinderlobber",
+      "name": "Cinderlobber",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Bombard",
+        "tier": 2,
+        "core_stats": {
+          "hp": 13,
+          "armor": 0,
+          "evasion": 8,
+          "e_defense": 14,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 13,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Indirect fire; route denial; forced displacement from cover",
+        "conversion_note": "Use indirect-fire baseline; area denial is represented by an indicated zone and duration, not persistent untracked hazards."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "coilspike",
+      "name": "Coilspike",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Ronin",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 13,
+          "e_defense": 7,
+          "speed": 5,
+          "heat_cap": 7,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Target anchoring; movement restriction",
+        "conversion_note": "Use mobile melee baseline; spikes are reskinned as the documented close-range weapon."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "core_crucible",
+      "name": "Core Crucible",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 9,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 12,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Core sorting; high-density energy component processing",
+        "conversion_note": "Use industrial/systems baseline; core processing is a scene objective, not an assumed combat buff."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "coredragger",
+      "name": "Coredragger",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Goliath",
+        "tier": 2,
+        "core_stats": {
+          "hp": 30,
+          "armor": 0,
+          "evasion": 6,
+          "e_defense": 6,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Retrieval of disabled machines; transport of high-value components",
+        "conversion_note": "Use heavy hauling baseline; its cargo does not grant free damage or extra armor unless stated."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crowsignal",
+      "name": "Crowsignal",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Operator",
+        "tier": 2,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 12,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Contact relay; local unit coordination",
+        "conversion_note": "Use coordination/targeting baseline; command effects apply only to units plausibly receiving its reports."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "furnace_ram",
+      "name": "Furnace Ram",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Breach attacks; denial of enclosed routes",
+        "conversion_note": "Use heavy impact baseline; pushes and prone effects follow standard NPC actions when relevant."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "glassbreaker",
+      "name": "Glassbreaker",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Disabling vision systems; cockpit pressure",
+        "conversion_note": "Use heavy close-range destruction baseline; breaching structural material is distinct from damage to a Tank."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "glasshail",
+      "name": "Glasshail",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Bombard",
+        "tier": 2,
+        "core_stats": {
+          "hp": 13,
+          "armor": 0,
+          "evasion": 8,
+          "e_defense": 14,
+          "speed": 2,
+          "heat_cap": 8,
+          "save_target": 13,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Close-to-medium-range area denial; damage to exposed equipment; anti-cover fire",
+        "conversion_note": "Use area-fire baseline; fragment spread is a bounded area effect with ordinary line-of-sight rules."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "graft_engine",
+      "name": "Graft Engine",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 9,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 12,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Assembly of biomechanical components; reconstitution of disabled units",
+        "conversion_note": "Use field-maintenance baseline; repair/reconstitution requires an explicit action and appropriate material."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "gravewhistle",
+      "name": "Gravewhistle",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 2,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 16,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Acoustic mapping; localization of machinery and movement",
+        "conversion_note": "Acoustic mapping/interference is a controller trait; use official Lancer conditions and save mechanics."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "kilnback",
+      "name": "Kilnback",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Goliath",
+        "tier": 2,
+        "core_stats": {
+          "hp": 30,
+          "armor": 0,
+          "evasion": 6,
+          "e_defense": 6,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport of heated feedstock; industrial heat delivery",
+        "conversion_note": "Use durable heavy-work baseline; heat hazards stay within the described operating zone."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "loadbreaker",
+      "name": "Loadbreaker",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Cataphract",
+        "tier": 2,
+        "core_stats": {
+          "hp": 17,
+          "armor": 0,
+          "evasion": 11,
+          "e_defense": 8,
+          "speed": 8,
+          "heat_cap": 7,
+          "save_target": 14,
+          "sensors": 5,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Route clearance; transfer of heavy structural debris",
+        "conversion_note": "Use mobile heavy-hauler baseline; load impact and route disruption are environmental effects."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "mirecaster",
+      "name": "Mirecaster",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 2,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 16,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Mobility denial; sensor obstruction; suppression of mechanical targets",
+        "conversion_note": "Use controller baseline; resin may impose a standard condition or block a route after a hit, as specified in encounter setup."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "needlejack",
+      "name": "Needlejack",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Sniper",
+        "tier": 2,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 13,
+          "e_defense": 9,
+          "speed": 4,
+          "heat_cap": 6,
+          "save_target": 13,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Anti-personnel fire; sensor and joint damage; short-to-medium-range interdiction",
+        "conversion_note": "Reskin precision fire to darts; sensor/joint targeting requires a successful hit and a defined effect."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "palimpsest",
+      "name": "Palimpsest",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Mirage",
+        "tier": 2,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 15,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 14,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Environmental pattern reproduction; purpose undetermined",
+        "conversion_note": "Environment-mimic profile; false routes/cover are represented as marked terrain deception, not actual created geometry."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "palisade_mule",
+      "name": "Palisade Mule",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Barricade",
+        "tier": 2,
+        "core_stats": {
+          "hp": 16,
+          "armor": 1,
+          "evasion": 7,
+          "e_defense": 11,
+          "speed": 3,
+          "heat_cap": 11,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport and placement of defensive barriers",
+        "conversion_note": "Use area-denial/obstruction baseline; deployed barriers use normal deployable/terrain rules."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "rattleback",
+      "name": "Rattleback",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Assault",
+        "tier": 2,
+        "core_stats": {
+          "hp": 18,
+          "armor": 1,
+          "evasion": 10,
+          "e_defense": 9,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 8,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Area suppression; escort fire; denial of exposed routes",
+        "conversion_note": "Reskin the official ranged weapon to the described controlled heavy-machine-gun bursts; suppression is a custom trait only if the scene needs it."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "red_ledger",
+      "name": "Red Ledger",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Operator",
+        "tier": 2,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 12,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Threat assessment; recognition of Tank configurations",
+        "conversion_note": "Use target acquisition/fire-control baseline; relay consequences remain limited to documented effects."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "remainder",
+      "name": "Remainder",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Berserker",
+        "tier": 2,
+        "core_stats": {
+          "hp": 16,
+          "armor": 1,
+          "evasion": 9,
+          "e_defense": 6,
+          "speed": 5,
+          "heat_cap": 6,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Fragment aggregation and distributed locomotion; purpose undetermined",
+        "conversion_note": "Fragment-aggregation profile; separation/rejoining is a custom trait and must not create extra turns or unlimited HP."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "sinter_forgehand",
+      "name": "Sinter Forgehand",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 9,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 12,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "On-site fabrication; production of replacement components",
+        "conversion_note": "Use fabrication/tooling baseline; build/repair effects require time and compatible materials."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "slag_shepherd",
+      "name": "Slag Shepherd",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Support",
+        "tier": 2,
+        "core_stats": {
+          "hp": 18,
+          "armor": 1,
+          "evasion": 10,
+          "e_defense": 10,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Waste routing; deposition of industrial residue",
+        "conversion_note": "Use support baseline; influence on nearby units only applies where lore supports coordination or maintenance."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "tendon_loom",
+      "name": "Tendon Loom",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Seeder",
+        "tier": 2,
+        "core_stats": {
+          "hp": 14,
+          "armor": 2,
+          "evasion": 8,
+          "e_defense": 10,
+          "speed": 4,
+          "heat_cap": 10,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Production of biomechanical fibers; repair-tissue supply",
+        "conversion_note": "Use deployable/area-denial baseline; placed material is limited to documented output and does not multiply indefinitely."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "threadneedle",
+      "name": "Threadneedle",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 2,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 15,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Route marking; passive pursuit guidance",
+        "conversion_note": "Use infiltration/precision-strike baseline; do not turn exposed-component targeting into automatic destruction."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "wailgun",
+      "name": "Wailgun",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 2,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 16,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Sensor disruption; targeting interference; short-range area suppression",
+        "conversion_note": "Use controller baseline; acoustic interference calls for a save and affects only the documented sensor/communication channels."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "wiremaw",
+      "name": "Wiremaw",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 3
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 2,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 15,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "1"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Equipment disabling; extraction-line interference",
+        "conversion_note": "Use close ambush baseline; cable/joint interference requires a hit and should not disable a Tank automatically."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "ashfall_battery",
+      "name": "Ashfall Battery",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Bombard",
+        "tier": 3,
+        "core_stats": {
+          "hp": 16,
+          "armor": 0,
+          "evasion": 8,
+          "e_defense": 16,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 16,
+          "sensors": 15,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Long-range bombardment; area denial; destruction of fortified positions",
+        "conversion_note": "Use high-tier artillery baseline; bombardment uses explicit telegraph/target area to remain fair and readable."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "bastion_train",
+      "name": "Bastion Train",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Barricade",
+        "tier": 2,
+        "core_stats": {
+          "hp": 16,
+          "armor": 1,
+          "evasion": 7,
+          "e_defense": 11,
+          "speed": 3,
+          "heat_cap": 11,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Transport of defensive panels and combat units; rapid establishment of protected corridors",
+        "conversion_note": "Use barrier/transport baseline; deploying cargo consumes an action and creates a defined terrain or unit effect."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "blackline_fabricator",
+      "name": "Blackline Fabricator",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Engineer",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 0,
+          "evasion": 9,
+          "e_defense": 10,
+          "speed": 3,
+          "heat_cap": 12,
+          "save_target": 12,
+          "sensors": 15,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Field assembly; tissue growth; restoration of disabled monsters",
+        "conversion_note": "Use repair/field-engineering baseline; reconstitution requires time, energy and compatible feedstock."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "corestorm_converter",
+      "name": "Corestorm Converter",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Aegis",
+        "tier": 2,
+        "core_stats": {
+          "hp": 18,
+          "armor": 2,
+          "evasion": 8,
+          "e_defense": 12,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 11,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Monster-core processing; power distribution; industrial defense support",
+        "conversion_note": "Use defensive/power-support baseline; electrical discharge is a bounded triggered hazard, not passive area damage every round."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crownsignal",
+      "name": "Crownsignal",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Operator",
+        "tier": 2,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 12,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Long-range target acquisition; multi-unit coordination; pursuit-network management",
+        "conversion_note": "Strategic sensor/relay trait; gains information/coordination only for allied units that could receive its signal."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "dead_meridian",
+      "name": "Dead Meridian",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Witch",
+        "tier": 2,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 16,
+          "speed": 6,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Localized multi-system interference; distributed site control; purpose undetermined",
+        "conversion_note": "Site-interference profile; effects are confined to an explicit area and selected systems, with visual observation still possible where lore says so."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "gravebed_colossus",
+      "name": "Gravebed Colossus",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Goliath",
+        "tier": 3,
+        "core_stats": {
+          "hp": 35,
+          "armor": 0,
+          "evasion": 6,
+          "e_defense": 6,
+          "speed": 3,
+          "heat_cap": 12,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Recovery of disabled machines; removal of major obstructions; heavy industrial towing",
+        "conversion_note": "Heavy mass/route alteration uses explicit map features; do not add damage merely for existing on the map."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "horizon_reaper",
+      "name": "Horizon Reaper",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Sniper",
+        "tier": 3,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 16,
+          "e_defense": 10,
+          "speed": 4,
+          "heat_cap": 6,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Precision anti-Tank fire; long-range route denial; target selection",
+        "conversion_note": "Use high-tier precision-fire baseline; long range does not imply unlimited map range or guaranteed hits."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "red_rain",
+      "name": "Red Rain",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Rainmaker",
+        "tier": 3,
+        "core_stats": {
+          "hp": 14,
+          "armor": 1,
+          "evasion": 12,
+          "e_defense": 12,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 14,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Saturation attack; mobile area denial; pursuit-route interdiction",
+        "conversion_note": "Use high-tier artillery/deployment baseline; multiple ordnance effects remain limited to the class action economy."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "redoubt_executioner",
+      "name": "Redoubt Executioner",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 3,
+        "core_stats": {
+          "hp": 25,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Heavy assault; mobility-module destruction; denial of extraction",
+        "conversion_note": "Use high-tier heavy assault baseline; mobility-module damage is a special effect after a hit, not automatic instant disablement."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "siege_stalker",
+      "name": "Siege Stalker",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Sniper",
+        "tier": 3,
+        "core_stats": {
+          "hp": 14,
+          "armor": 0,
+          "evasion": 16,
+          "e_defense": 10,
+          "speed": 4,
+          "heat_cap": 6,
+          "save_target": 15,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Long-range restraint; pursuit; extraction-route interdiction",
+        "conversion_note": "Use high-tier long-range precision baseline; line of sight, firing position and telegraphing remain important."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "veilwarden",
+      "name": "Veilwarden",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 4
+      },
+      "lancer_npc": {
+        "class": "Mirage",
+        "tier": 2,
+        "core_stats": {
+          "hp": 12,
+          "armor": 0,
+          "evasion": 12,
+          "e_defense": 15,
+          "speed": 6,
+          "heat_cap": 6,
+          "save_target": 14,
+          "sensors": 15,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Sensor disruption; false-contact generation; concealment support",
+        "conversion_note": "Decoy and sensor-confusion trait; deception can be checked against visual confirmation or independent sensors."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "broodforge",
+      "name": "Broodforge",
+      "setting": {
+        "functional_category": "Production and Maintenance",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Hive",
+        "tier": 2,
+        "core_stats": {
+          "hp": 20,
+          "armor": 1,
+          "evasion": 8,
+          "e_defense": 13,
+          "speed": 5,
+          "heat_cap": 8,
+          "save_target": 14,
+          "sensors": 10,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Mobile micro-unit fabrication; continuous combat-unit production; forward deployment support; local material processing; swarm replenishment",
+        "conversion_note": "Use swarm/controller baseline. Needle Spider production is capped by a simple encounter limit and action cost; never use unlimited reinforcements."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crossfire_ant",
+      "name": "Crossfire Ant",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Assault",
+        "tier": 2,
+        "core_stats": {
+          "hp": 18,
+          "armor": 1,
+          "evasion": 10,
+          "e_defense": 9,
+          "speed": 4,
+          "heat_cap": 8,
+          "save_target": 12,
+          "sensors": 8,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Mobile fire support; sustained suppression; anti-Tank skirmishing; extraction-route interdiction",
+        "conversion_note": "Use sustained-fire skirmisher baseline; two rifles are represented by the normal Barrage/action economy, not two extra independent turns."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "crownleaper",
+      "name": "Crownleaper",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Assassin",
+        "tier": 2,
+        "core_stats": {
+          "hp": 15,
+          "armor": 1,
+          "evasion": 15,
+          "e_defense": 8,
+          "speed": 6,
+          "heat_cap": 7,
+          "save_target": 12,
+          "sensors": 10,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Suicide attack; elevated ambush; Tank cockpit breach; pilot elimination",
+        "conversion_note": "Use Assassin baseline. Its single-use cockpit latch is a custom trait: successful attachment starts a timed removal/breach procedure; pilot death is never automatic from the damage value alone."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "flockcutter",
+      "name": "Flockcutter",
+      "setting": {
+        "functional_category": "Scout",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Specter",
+        "tier": 2,
+        "core_stats": {
+          "hp": 10,
+          "armor": 0,
+          "evasion": 14,
+          "e_defense": 10,
+          "speed": 5,
+          "heat_cap": 7,
+          "save_target": 12,
+          "sensors": 5,
+          "proposed_tactical_size": "1/2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Tank-origin inference; reinforced-cable severance; direct cable ascent; Flock infiltration",
+        "conversion_note": "Use stealth/infiltration baseline. Cable severance is a specific objective action with progress/interrupt conditions, not a free attack that automatically destroys a cable."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "iron_procession",
+      "name": "Iron Procession",
+      "setting": {
+        "functional_category": "Hauler",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Goliath",
+        "tier": 2,
+        "core_stats": {
+          "hp": 30,
+          "armor": 0,
+          "evasion": 6,
+          "e_defense": 6,
+          "speed": 3,
+          "heat_cap": 10,
+          "save_target": 13,
+          "sensors": 10,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Heavy-material recovery; bulk industrial transport; armored deployment carrier; rapid movement of smaller factory units",
+        "conversion_note": "Use heavy hauler baseline; cargo and mobile-corridor effects are objective/terrain interactions, not extra weapon attacks."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "null_witness",
+      "name": "Null Witness",
+      "setting": {
+        "functional_category": "Special-Unknown",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": null,
+        "tier": null,
+        "core_stats": {
+          "hp": null,
+          "armor": null,
+          "evasion": null,
+          "e_defense": null,
+          "speed": null,
+          "heat_cap": null,
+          "save_target": null,
+          "sensors": null,
+          "proposed_tactical_size": null
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Unknown; possible observation, reconnaissance, or an unconfirmed special-purpose role",
+        "conversion_note": "Exception: do not assign an ordinary Lancer NPC class/tier or combat statistics yet. The lore states its capabilities and durability are unknown; present it as an investigation/withdrawal encounter until evidence supports a stat block."
+      },
+      "record_status": "unassigned_unknown"
+    },
+    {
+      "id": "shellmaw",
+      "name": "Shellmaw",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Demolisher",
+        "tier": 3,
+        "core_stats": {
+          "hp": 25,
+          "armor": 2,
+          "evasion": 6,
+          "e_defense": 7,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 15,
+          "sensors": 10,
+          "proposed_tactical_size": "2"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Armored pursuit; breach assault; continuous close-range engagement; area denial",
+        "conversion_note": "Use heavy armored close-assault baseline; pursuit/area denial is a trait, and armor remains the official class value unless playtest calls for a deliberate exception."
+      },
+      "record_status": "class_and_tier_assigned"
+    },
+    {
+      "id": "starfall",
+      "name": "Starfall",
+      "setting": {
+        "functional_category": "Combat",
+        "threat_tier": 5
+      },
+      "lancer_npc": {
+        "class": "Bombard",
+        "tier": 3,
+        "core_stats": {
+          "hp": 16,
+          "armor": 0,
+          "evasion": 8,
+          "e_defense": 16,
+          "speed": 3,
+          "heat_cap": 8,
+          "save_target": 16,
+          "sensors": 15,
+          "proposed_tactical_size": "3"
+        }
+      },
+      "lore_to_mechanics": {
+        "documented_function": "Ultra-long-range artillery; anti-Tank fire; indirect-fire area denial; scout-coordinated targeting",
+        "conversion_note": "Use high-tier artillery baseline. Long-distance attacks require a defined off-map firing solution, warning/impact procedure and mission counterplay."
+      },
+      "record_status": "class_and_tier_assigned"
+    }
+  ]
+}

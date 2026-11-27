@@ -1,0 +1,207 @@
+{
+  "schema_version": "1.0.0",
+  "weapons": [
+    {
+      "id": "20x102mm_sniper_rifle",
+      "name": "20 × 102 mm Sniper Rifle",
+      "mount_size": "Heavy",
+      "weapon_type": "Heavy Rifle",
+      "range": 20,
+      "damage": {
+        "type": "Kinetic",
+        "dice": "2d6"
+      },
+      "tags": [
+        "Accurate",
+        "AP",
+        "Loading",
+        "Ordnance"
+      ],
+      "carcass_preservation_modifier": 0.9,
+      "description": "Long-barrelled anti-materiel precision rifle requiring a stable firing posture."
+    },
+    {
+      "id": "short_plasma_edge_sword",
+      "name": "Short Plasma Edge Sword",
+      "mount_size": "Main",
+      "weapon_type": "Main Melee",
+      "threat": 1,
+      "damage": {
+        "type": "Energy",
+        "dice": "1d3+3"
+      },
+      "tags": [
+        "AP"
+      ],
+      "carcass_preservation_modifier": 0.85,
+      "description": "Compact alloy blade with a toggleable high-energy plasma cutting edge."
+    },
+    {
+      "id": "twin_bomba",
+      "name": "Twin Bomba",
+      "mount_size": "Heavy",
+      "weapon_type": "Heavy Launcher",
+      "range": 15,
+      "threat": 3,
+      "damage": {
+        "type": "Kinetic",
+        "dice": "2d6"
+      },
+      "tags": [
+        "Seeking",
+        "AP",
+        "Loading"
+      ],
+      "special_property": "Enhanced Guidance: 1/round ignore 1 Difficulty from target movement/evasion.",
+      "carcass_preservation_modifier": 0.8,
+      "description": "Paired rocket-propelled tungsten penetrators fabricated at Iron Kennel."
+    },
+    {
+      "id": "arcchain_segmented_sword",
+      "name": "Arcchain Segmented Sword",
+      "mount_size": "Auxiliary",
+      "weapon_type": "Aux Melee",
+      "modes": {
+        "Compact": {
+          "threat": 1,
+          "damage": {
+            "type": "Kinetic",
+            "dice": "1d3"
+          }
+        },
+        "Extended": {
+          "threat": 2,
+          "damage": {
+            "type": "Energy",
+            "dice": "1d3"
+          }
+        }
+      },
+      "special_property": "Variable Segmentation: 1/turn Free Action switch between rigid sword and energized whip.",
+      "carcass_preservation_modifier": 0.9,
+      "description": "Segmented blade capable of extending into an electrified whip."
+    },
+    {
+      "id": "raijin",
+      "name": "Raijin",
+      "mount_size": "Main",
+      "weapon_type": "Main Launcher",
+      "range": 20,
+      "threat": 1,
+      "damage": {
+        "type": "Energy",
+        "dice": "1d6"
+      },
+      "tags": [
+        "Accurate",
+        "AP"
+      ],
+      "special_property": "Capacitor Draw (Quick Action): Store 1 charge for +6 Energy damage on next hit.",
+      "carcass_preservation_modifier": 0.95,
+      "description": "Transforming electrical bow firing high-velocity concentrated energy bolts."
+    },
+    {
+      "id": "fat_man",
+      "name": "Fat Man",
+      "mount_size": "Integrated",
+      "weapon_type": "Prototype Cannon",
+      "range": 10,
+      "damage": {
+        "type": "Explosive",
+        "dice": "1d6+4"
+      },
+      "tags": [
+        "Smart",
+        "Overkill",
+        "Limited [12]",
+        "Accurate"
+      ],
+      "carcass_preservation_modifier": 0.55,
+      "description": "Engineer III Final Draft custom prototype cannon with Tweaked Optics and Smart targeting."
+    },
+    {
+      "id": "zeus_mk_x",
+      "name": "Zeus-Mk.X",
+      "mount_size": "Main (Flex)",
+      "weapon_type": "Main Launcher",
+      "range": 25,
+      "damage": {
+        "type": "Energy",
+        "dice": "1d6+2"
+      },
+      "tags": [
+        "Accurate",
+        "AP",
+        "Reliable 2"
+      ],
+      "special_property": "Charge (Quick Action): +6 Energy on next hit. Phase-Coherent Cognitive Corrosion erodes AI/consciousness without damaging physical carcass or Core.",
+      "carcass_preservation_modifier": 1.0,
+      "description": "Forearm projector emitting a silent cognitive-corrosion field that leaves monster hardware and Cores completely intact."
+    },
+    {
+      "id": "sayaka_mk_v_superheavy_launcher",
+      "name": "Sāyaka-Mk.V Superheavy Launcher",
+      "mount_size": "Superheavy (Heavy + Main)",
+      "weapon_type": "Superheavy Launcher",
+      "range": 30,
+      "area": "Blast 2",
+      "damage": {
+        "type": "Explosive",
+        "dice": "3d6+3"
+      },
+      "heat_cost": 1,
+      "tags": [
+        "Ordnance",
+        "Seeking",
+        "AP",
+        "Blast 2"
+      ],
+      "carcass_preservation_modifier": 0.45,
+      "description": "High-impact superheavy warhead launcher built to crack armored Tier IV–V threats."
+    }
+  ],
+  "systems": [
+    {
+      "id": "lotus_projector",
+      "name": "Lotus Projector",
+      "sp_cost": 2,
+      "action": "Quick Action",
+      "effect": "Deploy invisible Scout Drone within Sensors/LoS; projects Burst 2 detection zone negating Hidden/Invisible."
+    },
+    {
+      "id": "markerlight",
+      "name": "Markerlight",
+      "sp_cost": 2,
+      "action": "Quick Tech",
+      "effect": "Tech attack: deals 2 Heat, applies Lock On, negates soft cover, and lets reaction upgrade an ally hit to a Critical Hit."
+    },
+    {
+      "id": "student_class_nhp",
+      "name": "Student-Class NHP",
+      "sp_cost": 0,
+      "action": "1/Round Passive",
+      "effect": "Grants AI tag; 1/round reroll any mech skill check or save (must keep second result)."
+    },
+    {
+      "id": "h0r_os_system_upgrade_i",
+      "name": "H0R_OS System Upgrade I",
+      "sp_cost": 2,
+      "action": "Invade",
+      "effect": "Unlocks Puppet System (force target movement/reactions) and Eject Power Cores (inflict Jammed + Heat)."
+    },
+    {
+      "id": "h0r_os_system_upgrade_ii",
+      "name": "H0R_OS System Upgrade II",
+      "sp_cost": 2,
+      "action": "Quick Tech",
+      "effect": "Manifests Ideal Image (Size 2 hard cover construct) or False Idol (illusory decoy requiring Systems save to target original)."
+    },
+    {
+      "id": "h0r_os_system_upgrade_iii",
+      "name": "H0R_OS System Upgrade III",
+      "sp_cost": 2,
+      "action": "Invade",
+      "effect": "Unlocks Dimensional Emblems (3 proximity Heat mines) and Celestial Shackles (teleports fleeing target back to marked space)."
+    }
+  ]
+}

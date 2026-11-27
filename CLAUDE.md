@@ -7,7 +7,7 @@
 
 ## 2. Tech Stack & GitHub Pages Compatibility
 * **Zero-Build Architecture:** Use standard HTML5, CSS3, and native ES6 JavaScript modules (`type="module"`) with **Phaser 3 loaded via CDN**. Do NOT introduce npm, Webpack, Vite, or TypeScript build steps—the repository must run directly as a static site on **GitHub Pages**.
-* **Relative Paths Only (Critical):** GitHub Pages serves repositories from a subdirectory (`/<repo-name>/`). Always use relative paths (`./src/main.js`, `./data/items.json`, `./assets/...`) and NEVER leading-slash root paths (`/src/...` or `/data/...`), which cause 404 errors on GitHub Pages.
+* **Relative Paths Only (Critical):** GitHub Pages serves repositories from a subdirectory (`/<repo-name>/`). Always use relative paths (`./src/main.js`, `./data/game_constants.json`, `./assets/...`) and NEVER leading-slash root paths (`/src/...` or `/data/...`), which cause 404 errors on GitHub Pages.
 
 ## 3. Pixel Art & Rendering Standards
 * **Base Resolution:** `320x180` (16:9), scaled via `Phaser.Scale.FIT` and `Phaser.Scale.CENTER_BOTH`.
@@ -21,7 +21,7 @@ Maintain the exact directory layout defined in `GDD.md`:
 * `src/scenes/` — `BootScene.js`, `WorldScene.js`, `UIScene.js`
 * `src/entities/` — `Player.js`, `Enemy.js`, `NPC.js`
 * `src/systems/` — `CombatSystem.js`, `InventorySystem.js`, `SaveSystem.js`
-* `data/` — `items.json`, `enemies.json`, `dialogue.json`
+* `data/` — `game_constants.json`, `player_pilot_and_tank.json`, `weapons_and_systems.json`, `monsters_starter_roster.json`, `monsters_roster.json`, `world_factions_and_swarms.json`, `salvage_and_economy.json` (see GDD.md section 7)
 * `assets/` — `sprites/`, `tilesets/`, `audio/`
 
 ## 5. Coding & Output Standards

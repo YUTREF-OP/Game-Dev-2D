@@ -1,0 +1,170 @@
+{
+  "schema_version": "1.0.0",
+  "game_title": "The Broken Firmament: Diver",
+  "setting": {
+    "world_name": "Earth — The Broken Firmament",
+    "era": "Post-D-Day Aerial Era (Age of Flocks)",
+    "starting_date": "2107-10-22",
+    "d_day_year": 2096,
+    "global_biomass_processed_ratio": 0.67
+  },
+  "dive_rules": {
+    "deployment_altitude_meters": {
+      "min": 50,
+      "max": 60
+    },
+    "max_tanks_per_cable": 3,
+    "deployment_order": "sequential",
+    "surface_window_minutes": 240,
+    "recall_warning_minutes": 210,
+    "abandonment_policy_enabled": true,
+    "lingering_swarm_cooldown_days": {
+      "min": 5,
+      "max": 7
+    },
+    "operating_models": {
+      "mobile_flock": {
+        "deployment_frequency": "daily",
+        "location_behavior": "relocates_daily",
+        "participation": "all_ready_divers"
+      },
+      "location_locked_community": {
+        "deployment_frequency": "demand_based",
+        "location_behavior": "fixed_regional_territory",
+        "participation": "assigned_roster"
+      }
+    }
+  },
+  "cargo_rules": {
+    "unit_name": "CU",
+    "standard_bay_dimensions_m": [
+      2.5,
+      1.5,
+      1.5
+    ],
+    "standard_capacity_cu": 48,
+    "expanded_capacity_cu": 60,
+    "size_classes": {
+      "Small": {
+        "max_envelope_cm": [
+          30,
+          30,
+          30
+        ],
+        "cu": 1
+      },
+      "Big": {
+        "max_envelope_cm": [
+          60,
+          60,
+          60
+        ],
+        "cu": 2
+      },
+      "Large": {
+        "max_envelope_cm": [
+          250,
+          150,
+          150
+        ],
+        "cu": 6
+      },
+      "Oversized": {
+        "max_envelope_cm": null,
+        "cu": null,
+        "requires_special_transport": true
+      }
+    }
+  },
+  "core_quality_tiers": {
+    "1": {
+      "grade": "Basic Core",
+      "diameter_cm": [
+        5,
+        8
+      ],
+      "rarity": "Common",
+      "tank_dives_powered": 3,
+      "vessel_days_powered": 14,
+      "base_value_cr": [
+        500,
+        2500
+      ]
+    },
+    "2": {
+      "grade": "Improved Core",
+      "diameter_cm": [
+        8,
+        15
+      ],
+      "rarity": "Uncommon",
+      "tank_dives_powered": 6,
+      "vessel_days_powered": 28,
+      "base_value_cr": [
+        5000,
+        25000
+      ]
+    },
+    "3": {
+      "grade": "Advanced Core",
+      "diameter_cm": [
+        15,
+        30
+      ],
+      "rarity": "Rare",
+      "tank_dives_powered": 12,
+      "vessel_days_powered": 60,
+      "base_value_cr": [
+        95000,
+        1200000
+      ]
+    },
+    "4": {
+      "grade": "High-Grade Core",
+      "diameter_cm": [
+        30,
+        60
+      ],
+      "rarity": "Very Rare",
+      "tank_dives_powered": 25,
+      "vessel_days_powered": 120,
+      "base_value_cr": [
+        1000000,
+        1600000
+      ]
+    },
+    "5": {
+      "grade": "Exceptional Core",
+      "diameter_cm": [
+        60,
+        120
+      ],
+      "rarity": "Extremely Rare",
+      "tank_dives_powered": 60,
+      "vessel_days_powered": 365,
+      "base_value_cr": [
+        5000000,
+        25000000
+      ]
+    }
+  },
+  "economy_baselines": {
+    "currency_code": "Cr",
+    "currency_name": "Credits",
+    "reference_prices": {
+      "simple_meal": 2,
+      "daily_rations": 6,
+      "clean_water_per_liter": 0.3,
+      "shared_bunk_per_night": 6,
+      "private_berth_per_night": 18,
+      "diver_base_fee_per_dive": [
+        80,
+        200
+      ],
+      "standard_firearm": [
+        150,
+        500
+      ]
+    }
+  }
+}

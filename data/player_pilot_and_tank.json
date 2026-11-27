@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.0.0",
+  "pilot": {
+    "id": "travis_park",
+    "name": "Travis Park",
+    "callsign": "Rivet",
+    "age": 24,
+    "background": "Independent Mechanic / Tank Co-builder",
+    "companion_npc": {
+      "id": "ziya_lin",
+      "name": "Ziya Lin",
+      "callsign": "Relay",
+      "role": "Vessel Co-Operator / Recon & EW Diver",
+      "assigned_tank": "Ghostline"
+    },
+    "starter_state_ll0": {
+      "license_level": 0,
+      "grit": 0,
+      "credits": 1200,
+      "pilot_stats": {
+        "hp": 6,
+        "armor": 0,
+        "evasion": 10,
+        "e_defense": 10,
+        "speed": 4,
+        "size": 0.5
+      },
+      "mech_skills_hase": {
+        "Hull": 1,
+        "Agility": 0,
+        "Systems": 0,
+        "Engineering": 1
+      },
+      "triggers": {
+        "Hack or Fix": 2,
+        "Spot": 2,
+        "Stay Cool": 2,
+        "Get Somewhere Quickly": 2
+      },
+      "talents": [
+        {
+          "id": "siege_specialist",
+          "rank": 1
+        },
+        {
+          "id": "spotter",
+          "rank": 1
+        },
+        {
+          "id": "engineer",
+          "rank": 1
+        }
+      ]
+    },
+    "midgame_benchmark_ll6": {
+      "license_level": 6,
+      "grit": 3,
+      "pilot_stats": {
+        "hp": 9,
+        "armor": 0,
+        "evasion": 8,
+        "e_defense": 8,
+        "speed": 4,
+        "size": 0.5
+      },
+      "mech_skills_hase": {
+        "Hull": 2,
+        "Agility": 1,
+        "Systems": 4,
+        "Engineering": 1
+      },
+      "triggers": {
+        "Hack or Fix": 2,
+        "Spot": 4,
+        "Stay Cool": 2,
+        "Get Somewhere Quickly": 2,
+        "Show Off": 2,
+        "Investigate": 4,
+        "Act Unseen or Unheard": 2,
+        "Take Control": 2
+      },
+      "talents": [
+        {
+          "id": "infiltrator",
+          "rank": 2
+        },
+        {
+          "id": "stormbringer",
+          "rank": 1
+        },
+        {
+          "id": "engineer",
+          "rank": 3
+        },
+        {
+          "id": "technophile",
+          "rank": 2
+        },
+        {
+          "id": "brutal",
+          "rank": 1
+        }
+      ],
+      "licenses": [
+        "SSC Swallowtail I",
+        "SSC Monarch II",
+        "HORUS Goblin III"
+      ],
+      "core_bonuses": [
+        "SSC Ghostweave",
+        "The Lesson of Disbelief"
+      ]
+    }
+  },
+  "tank_shroud": {
+    "id": "shroud",
+    "name": "Shroud",
+    "physical_specs": {
+      "height_m": 4.5,
+      "mass_tonnes": 3.2,
+      "mobility_module": "bipedal_wide_stance",
+      "auxiliary_arms": 2,
+      "climber_system": "rear_automatic_cable_climber"
+    },
+    "starter_configuration_ll0": {
+      "completion_percent": 95,
+      "frame_baseline": "GMS-SP1 Everest Derivative",
+      "stats": {
+        "hp": 12,
+        "structure": 4,
+        "stress": 4,
+        "heat_cap": 7,
+        "armor": 0,
+        "evasion": 8,
+        "e_defense": 8,
+        "speed": 4,
+        "sensors": 10,
+        "tech_attack": 0,
+        "save_target": 10,
+        "repair_cap": 5,
+        "sp_total": 6,
+        "size": 1,
+        "cargo_cu": 48,
+        "energy_reserve_ep": 5
+      },
+      "frame_traits": [
+        "initiative",
+        "replaceable_parts"
+      ],
+      "core_system": "hyperspec_fuel_injector",
+      "equipped_weapons": {
+        "heavy_mount": "20x102mm_sniper_rifle",
+        "main_mount": "short_plasma_edge_sword",
+        "flex_mount": null
+      },
+      "equipped_systems": []
+    },
+    "midgame_configuration_ll6": {
+      "completion_percent": 100,
+      "frame_baseline": "SSC Monarch Refit (Work Order IK-SHROUD-0411)",
+      "stats": {
+        "hp": 18,
+        "structure": 4,
+        "stress": 4,
+        "heat_cap": 9,
+        "armor": 3,
+        "evasion": 12,
+        "e_defense": 14,
+        "speed": 8,
+        "sensors": 20,
+        "tech_attack": 7,
+        "accuracy_bonus": 1,
+        "save_target": 13,
+        "repair_cap": 4,
+        "sp_total": 12,
+        "size": 2,
+        "cargo_cu": 60,
+        "energy_reserve_ep": 5
+      },
+      "frame_traits": [
+        "avenger_silos",
+        "seeking_payload"
+      ],
+      "core_system": "ssc_30_divine_punishment",
+      "equipped_weapons": {
+        "heavy_plus_main_mount": "sayaka_mk_v_superheavy_launcher",
+        "flex_mount": "zeus_mk_x",
+        "integrated_mount": "fat_man"
+      },
+      "equipped_systems": [
+        "lotus_projector",
+        "student_class_nhp",
+        "h0r_os_system_upgrade_i",
+        "markerlight",
+        "h0r_os_system_upgrade_ii",
+        "h0r_os_system_upgrade_iii"
+      ]
+    }
+  }
+}

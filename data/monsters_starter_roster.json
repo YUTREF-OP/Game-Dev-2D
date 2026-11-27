@@ -1,0 +1,380 @@
+{
+  "schema_version": "1.0.0",
+  "total_canonical_roster_count": 116,
+  "starter_entities": [
+    {
+      "id": "candlebug",
+      "name": "Candlebug",
+      "functional_category": "Scout",
+      "threat_tier": 1,
+      "lancer_chassis": {
+        "class": "Scout",
+        "tier": 1,
+        "size": 0.5,
+        "hp": 8,
+        "armor": 0,
+        "evasion": 12,
+        "e_defense": 10,
+        "speed": 6,
+        "sensors": 20
+      },
+      "ai_behavior": "Non-combat route marker; flees upon detection and attempts to relay Diver coordinates.",
+      "sensor_signature": {
+        "optical": "Low (small)",
+        "thermal": "Low",
+        "em": "High (relay pulse)"
+      },
+      "loot_profile": {
+        "core_tier": 1,
+        "core_cu": 1,
+        "carcass_size": "Small",
+        "requires_cradlehook": false
+      }
+    },
+    {
+      "id": "blackkite",
+      "name": "Blackkite",
+      "functional_category": "Scout",
+      "threat_tier": 3,
+      "lancer_chassis": {
+        "class": "Scout",
+        "tier": 2,
+        "size": 1,
+        "hp": 8,
+        "armor": 0,
+        "evasion": 15,
+        "e_defense": 13,
+        "speed": 7,
+        "sensors": 20
+      },
+      "ai_behavior": "Long-range aerial/elevated tracker; applies Lock On and coordinates pursuit packs.",
+      "sensor_signature": {
+        "optical": "Medium",
+        "thermal": "Medium",
+        "em": "High"
+      },
+      "loot_profile": {
+        "core_tier": 3,
+        "core_cu": 1,
+        "carcass_size": "Medium",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          7000,
+          14000
+        ]
+      }
+    },
+    {
+      "id": "kilnback",
+      "name": "Kilnback",
+      "functional_category": "Hauler",
+      "threat_tier": 3,
+      "lancer_chassis": {
+        "class": "Goliath",
+        "tier": 2,
+        "size": 2,
+        "hp": 30,
+        "armor": 0,
+        "evasion": 6,
+        "e_defense": 6,
+        "speed": 3,
+        "sensors": 10
+      },
+      "ai_behavior": "Heavy thermal-feedstock transport; radiates close-range heat hazard and crushes obstructions.",
+      "sensor_signature": {
+        "optical": "High",
+        "thermal": "Extreme",
+        "em": "Medium"
+      },
+      "loot_profile": {
+        "core_tier": 3,
+        "core_cu": 1,
+        "carcass_size": "Large",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          12000,
+          28000
+        ]
+      }
+    },
+    {
+      "id": "furnace_ram",
+      "name": "Furnace Ram",
+      "functional_category": "Combat",
+      "threat_tier": 3,
+      "lancer_chassis": {
+        "class": "Demolisher",
+        "tier": 2,
+        "size": 2,
+        "hp": 20,
+        "armor": 2,
+        "evasion": 6,
+        "e_defense": 7,
+        "speed": 2,
+        "sensors": 10
+      },
+      "ai_behavior": "Heavy breach unit; charges chokepoints to knock Tanks Prone and deny cable access.",
+      "sensor_signature": {
+        "optical": "High",
+        "thermal": "High",
+        "em": "Low"
+      },
+      "loot_profile": {
+        "core_tier": 3,
+        "core_cu": 1,
+        "carcass_size": "Large",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          4000,
+          9000
+        ]
+      }
+    },
+    {
+      "id": "tendon_loom",
+      "name": "Tendon Loom",
+      "functional_category": "Production and Maintenance",
+      "threat_tier": 3,
+      "lancer_chassis": {
+        "class": "Seeder",
+        "tier": 2,
+        "size": 1,
+        "hp": 14,
+        "armor": 2,
+        "evasion": 8,
+        "e_defense": 10,
+        "speed": 4,
+        "sensors": 15
+      },
+      "ai_behavior": "Spins biomechanical repair fibers and deploys entangling tissue hazards to slow retreating Divers.",
+      "sensor_signature": {
+        "optical": "Medium",
+        "thermal": "Low (biological)",
+        "em": "Medium"
+      },
+      "loot_profile": {
+        "core_tier": 3,
+        "core_cu": 1,
+        "carcass_size": "Medium",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          3080,
+          24850
+        ]
+      }
+    },
+    {
+      "id": "veilwarden",
+      "name": "Veilwarden",
+      "functional_category": "Scout",
+      "threat_tier": 4,
+      "lancer_chassis": {
+        "class": "Mirage",
+        "tier": 2,
+        "size": 2,
+        "hp": 12,
+        "armor": 0,
+        "evasion": 12,
+        "e_defense": 15,
+        "speed": 6,
+        "sensors": 15
+      },
+      "ai_behavior": "Projects multi-spectrum false contacts and cloaks nearby Combat units until pierced by Optical/Lotus scan.",
+      "sensor_signature": {
+        "optical": "Distorted",
+        "thermal": "Masked",
+        "em": "Jamming"
+      },
+      "loot_profile": {
+        "core_tier": 4,
+        "core_cu": 2,
+        "carcass_size": "Large",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          23300,
+          92770
+        ]
+      }
+    },
+    {
+      "id": "ashfall_battery",
+      "name": "Ashfall Battery",
+      "functional_category": "Combat",
+      "threat_tier": 4,
+      "lancer_chassis": {
+        "class": "Bombard",
+        "tier": 3,
+        "size": 3,
+        "hp": 16,
+        "armor": 0,
+        "evasion": 8,
+        "e_defense": 16,
+        "speed": 3,
+        "sensors": 15
+      },
+      "ai_behavior": "Long-range indirect artillery platform; telegraphs bombardment zones to flush Tanks out of cover.",
+      "sensor_signature": {
+        "optical": "High",
+        "thermal": "High",
+        "em": "High"
+      },
+      "loot_profile": {
+        "core_tier": 4,
+        "core_cu": 2,
+        "carcass_size": "Large",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          81450,
+          351900
+        ]
+      }
+    },
+    {
+      "id": "horizon_reaper",
+      "name": "Horizon Reaper",
+      "functional_category": "Combat",
+      "threat_tier": 4,
+      "lancer_chassis": {
+        "class": "Sniper",
+        "tier": 3,
+        "size": 2,
+        "hp": 14,
+        "armor": 0,
+        "evasion": 16,
+        "e_defense": 10,
+        "speed": 4,
+        "sensors": 15
+      },
+      "ai_behavior": "Precision anti-Tank marksman; locks onto elevated firing lanes and punishes exposed cockpits.",
+      "sensor_signature": {
+        "optical": "Camouflaged",
+        "thermal": "Low",
+        "em": "Spike on lock"
+      },
+      "loot_profile": {
+        "core_tier": 4,
+        "core_cu": 2,
+        "carcass_size": "Large",
+        "requires_cradlehook": true,
+        "carcass_appraisal_cr": [
+          100000,
+          180000
+        ]
+      }
+    },
+    {
+      "id": "farspike_monolith",
+      "name": "Farspike Monolith",
+      "functional_category": "Combat",
+      "threat_tier": 4,
+      "lancer_chassis": {
+        "class": "Bombard",
+        "tier": 3,
+        "size": 3,
+        "hp": 35,
+        "armor": 2,
+        "evasion": 6,
+        "e_defense": 12,
+        "speed": 2,
+        "sensors": 20
+      },
+      "ai_behavior": "Colossal 675-tonne biomechanical siege monolith; anchors zone control with devastating ordnance.",
+      "sensor_signature": {
+        "optical": "Massive",
+        "thermal": "Extreme",
+        "em": "Extreme"
+      },
+      "loot_profile": {
+        "core_tier": 4,
+        "core_cu": 6,
+        "carcass_size": "Oversized (675t)",
+        "requires_cradlehook": true,
+        "special_recovery_vessels": 3,
+        "carcass_appraisal_cr": [
+          13562600,
+          58836000
+        ]
+      }
+    },
+    {
+      "id": "flockcutter",
+      "name": "Flockcutter",
+      "functional_category": "Scout",
+      "threat_tier": 5,
+      "code_black": true,
+      "lancer_chassis": {
+        "class": "Specter",
+        "tier": 2,
+        "size": 0.5,
+        "hp": 10,
+        "armor": 0,
+        "evasion": 14,
+        "e_defense": 10,
+        "speed": 5,
+        "sensors": 5
+      },
+      "ai_behavior": "CODE BLACK infiltrator: ignores ground combat to ascend the steel cable and sever/board the host Flock.",
+      "sensor_signature": {
+        "optical": "Stealth",
+        "thermal": "Minimal",
+        "em": "Shielded"
+      },
+      "loot_profile": {
+        "core_tier": 5,
+        "core_cu": 6,
+        "carcass_size": "Small",
+        "requires_cradlehook": false
+      }
+    },
+    {
+      "id": "broodforge",
+      "name": "Broodforge",
+      "functional_category": "Production and Maintenance",
+      "threat_tier": 5,
+      "code_black": true,
+      "lancer_chassis": {
+        "class": "Hive",
+        "tier": 2,
+        "size": 3,
+        "hp": 20,
+        "armor": 1,
+        "evasion": 8,
+        "e_defense": 13,
+        "speed": 5,
+        "sensors": 10
+      },
+      "ai_behavior": "CODE BLACK mobile factory node; processes surface scrap into Needle Spider combat drones.",
+      "sensor_signature": {
+        "optical": "High",
+        "thermal": "Extreme",
+        "em": "Extreme"
+      },
+      "loot_profile": {
+        "core_tier": 5,
+        "core_cu": 6,
+        "carcass_size": "Oversized",
+        "requires_cradlehook": true
+      }
+    },
+    {
+      "id": "null_witness",
+      "name": "Null Witness",
+      "functional_category": "Special / Unknown",
+      "threat_tier": 5,
+      "code_black": true,
+      "lancer_chassis": null,
+      "ai_behavior": "CODE BLACK anomaly: unassigned combat profile; triggers multi-sensor collapse and mandatory Dive abort.",
+      "sensor_signature": {
+        "optical": "Anomalous",
+        "thermal": "Null/Void",
+        "em": "Total Interference"
+      },
+      "loot_profile": {
+        "core_tier": 5,
+        "core_cu": 6,
+        "carcass_size": "Unknown",
+        "requires_cradlehook": true
+      }
+    }
+  ]
+}
