@@ -2,8 +2,17 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
   <title>The Broken Firmament: Diver — Movement Sandbox</title>
+
+  <!-- Mobile web-app setup: "Add to Home Screen" launches fullscreen in landscape. -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Diver">
+  <meta name="theme-color" content="#1a1c2c">
+  <link rel="manifest" href="./manifest.webmanifest">
+
   <style>
     html, body {
       margin: 0;
@@ -12,31 +21,67 @@
       height: 100%;
       overflow: hidden;
       background: #0d0e17;
+      /* The page must never scroll, zoom, select text or show callouts under a thumb. */
+      touch-action: none;
+      overscroll-behavior: none;
+      -webkit-user-select: none;
+      user-select: none;
+      -webkit-touch-callout: none;
+      -webkit-tap-highlight-color: transparent;
     }
 
     #game {
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
+      height: 100dvh; /* excludes the mobile browser's collapsing toolbars */
     }
 
     /* Crisp pixel enforcement: never let the browser smooth the scaled canvas. */
     canvas {
       display: block;
+      touch-action: none;
       image-rendering: -moz-crisp-edges;
       image-rendering: crisp-edges;
       image-rendering: pixelated;
     }
 
-    #boot-error {
+    #boot-error,
+    #rotate-hint {
       display: none;
-      position: absolute;
+      position: fixed;
       inset: 0;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
+      gap: 12px;
       padding: 16px;
       color: #f4f4f4;
       font: 14px/1.5 monospace;
       text-align: center;
+    }
+
+    #rotate-hint {
+      z-index: 10;
+      background: #1a1c2c;
+      letter-spacing: 1px;
+    }
+
+    #rotate-hint .icon {
+      width: 28px;
+      height: 44px;
+      border: 3px solid #73eff7;
+      border-radius: 4px;
+      animation: rotate-hint 1.6s ease-in-out infinite;
+    }
+
+    @keyframes rotate-hint {
+      0%, 30% { transform: rotate(0deg); }
+      60%, 100% { transform: rotate(90deg); }
+    }
+
+    /* The game is landscape-only: cover it on touch devices held upright. */
+    @media (orientation: portrait) and (pointer: coarse) {
+      #rotate-hint { display: flex; }
     }
   </style>
   <!-- Phaser 3 from CDN (global `Phaser`). No build step: the repo runs as-is on GitHub Pages. -->
@@ -44,6 +89,7 @@
 </head>
 <body>
   <div id="game"></div>
+  <div id="rotate-hint"><div class="icon"></div>ROTATE YOUR DEVICE TO PLAY</div>
   <div id="boot-error"></div>
   <!-- Relative path only: GitHub Pages serves this repo from /<repo-name>/. -->
   <script type="module" src="./src/main.js"></script>

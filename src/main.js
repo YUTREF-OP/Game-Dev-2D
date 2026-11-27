@@ -51,10 +51,16 @@ async function boot() {
       },
     },
 
+    // Mobile-first: touch is the primary controller (joystick + JUMP + DASH can
+    // all be held at once, so allow 3 simultaneous touches). The keyboard stays
+    // enabled as a desktop development fallback.
     input: {
+      activePointers: 3,
+      touch: true,
       keyboard: true,
       gamepad: false,
     },
+    disableContextMenu: true, // no long-press menu on mobile
 
     scene: [BootScene, WorldScene, UIScene],
   };

@@ -1,3 +1,5 @@
+import InputSystem from '../systems/InputSystem.js';
+
 // BootScene: loads /data JSON into the registry and generates every placeholder
 // texture in code (Graphics.generateTexture), so the game runs with zero .png files.
 
@@ -356,10 +358,45 @@ const GLYPHS = {
   "'": ['010', '010', '000', '000', '000'],
 };
 
+// Touch-control icons (drawn white on the button discs).
+const ICON_JUMP = [
+  '.....w.....',
+  '....www....',
+  '...wwwww...',
+  '..wwwwwww..',
+  '.wwwwwwwww.',
+  '....www....',
+  '....www....',
+  '....www....',
+];
+const ICON_DASH = [
+  'ww....ww....',
+  '.ww....ww...',
+  '..ww....ww..',
+  '...ww....ww.',
+  '..ww....ww..',
+  '.ww....ww...',
+  'ww....ww....',
+];
+const ICON_FULLSCREEN = [
+  'wwwwkkkkwwww',
+  'wkkkkkkkkkkw',
+  'wkkkkkkkkkkw',
+  'wkkkkkkkkkkw',
+  'kkkkkkkkkkkk',
+  'kkkkkkkkkkkk',
+  'kkkkkkkkkkkk',
+  'kkkkkkkkkkkk',
+  'wkkkkkkkkkkw',
+  'wkkkkkkkkkkw',
+  'wkkkkkkkkkkw',
+  'wwwwkkkkwwww',
+];
+
 // Exposed for tooling/tests that want to validate the art without a browser.
 export const PIXEL_ART = {
   PLAYER_UPPER, PLAYER_LEGS, DUMMY_MAP, CHECKPOINT_MAP, GROUND_MAP, GROUND_FILL_MAP,
-  PLATFORM_MAP, SPIKES_MAP, FONT_CHARS, GLYPHS,
+  PLATFORM_MAP, SPIKES_MAP, FONT_CHARS, GLYPHS, ICON_JUMP, ICON_DASH, ICON_FULLSCREEN,
 };
 
 // ---------------------------------------------------------------------------
@@ -408,6 +445,32 @@ function drawPixelMap(g, rows, palette, ox = 0, oy = 0) {
       x += run;
     }
   });
+}
+
+// Filled pixel circle from integer scanlines (no anti-aliased arcs).
+function drawDisc(g, cx, cy, r, color, alpha = 1) {
+  g.fillStyle(color, alpha);
+  for (let dy = -r; dy <= r; dy += 1) {
+    const half = Math.floor(Math.sqrt(r * r - dy * dy));
+    g.fillRect(cx - half, cy + dy, half * 2 + 1, 1);
+  }
+}
+
+// Pixel ring between radii rInner (exclusive) and rOuter (inclusive).
+function drawRing(g, cx, cy, rOuter, rInner, color, alpha = 1) {
+  g.fillStyle(color, alpha);
+  for (let dy = -rOuter; dy <= rOuter; dy += 1) {
+    const ho = Math.floor(Math.sqrt(rOuter * rOuter - dy * dy));
+    if (Math.abs(dy) > rInner) {
+      g.fillRect(cx - ho, cy + dy, ho * 2 + 1, 1);
+    } else {
+      const hi = Math.floor(Math.sqrt(rInner * rInner - dy * dy));
+      if (ho > hi) {
+        g.fillRect(cx - ho, cy + dy, ho - hi, 1);
+        g.fillRect(cx + hi + 1, cy + dy, ho - hi, 1);
+      }
+    }
+  }
 }
 
 function typeOfValue(value) {
@@ -473,6 +536,8 @@ export default class BootScene extends Phaser.Scene {
   }
 
   create() {
+    // Shared virtual controller: UIScene's touch HUD writes, the Player reads.
+    this.registry.set('virtualInput', new InputSystem());
     this.registerData();
     this.generateTextures();
     this.generatePixelFont();
@@ -590,6 +655,47 @@ export default class BootScene extends Phaser.Scene {
     this.generateSky();
     this.generateSkyline('bg_city', 256, 128, 0xc17, P.plum, P.red, { minH: 40, maxH: 110, windowChance: 0.05 });
     this.generateSkyline('bg_ruins', 256, 64, 0x5eed, P.navy, P.orange, { minH: 16, maxH: 52, windowChance: 0.02 });
+
+    this.generateTouchTextures();
+  }
+
+  // Virtual joystick + action buttons for the touchscreen HUD (drawn by UIScene).
+  generateTouchTextures() {
+    // Joystick base: 40x40 ring with a dark well.
+    let g = this.newGraphics();
+    drawDisc(g, 20, 20, 19, P.black);
+    drawDisc(g, 20, 20, 17, P.charcoal);
+    drawRing(g, 20, 20, 17, 15, P.slate);
+    drawRing(g, 20, 20, 19, 18, P.silver);
+    g.generateTexture('touch_stick_base', 40, 40);
+    g.destroy();
+
+    // Joystick knob: 20x20.
+    g = this.newGraphics();
+    drawDisc(g, 10, 10, 9, P.black);
+    drawDisc(g, 10, 10, 8, P.silver);
+    drawDisc(g, 9, 9, 4, P.white);
+    g.generateTexture('touch_stick_knob', 20, 20);
+    g.destroy();
+
+    // Action buttons: 32x32 discs with an icon.
+    const button = (key, fill, icon) => {
+      const bg = this.newGraphics();
+      drawDisc(bg, 16, 16, 15, P.black);
+      drawDisc(bg, 16, 16, 14, fill);
+      drawRing(bg, 16, 16, 14, 12, P.white, 0.35);
+      const iw = icon[0].length;
+      const ih = icon.length;
+      drawPixelMap(bg, icon, { w: P.white }, 16 - Math.floor(iw / 2), 16 - Math.floor(ih / 2));
+      bg.generateTexture(key, 32, 32);
+      bg.destroy();
+    };
+    assertMap('icon_jump', ICON_JUMP, 11, 8);
+    assertMap('icon_dash', ICON_DASH, 12, 7);
+    button('touch_btn_jump', P.green, ICON_JUMP);
+    button('touch_btn_dash', P.blue, ICON_DASH);
+
+    this.textureFromMap('touch_btn_fullscreen', ICON_FULLSCREEN, { w: P.white, k: P.black }, 12, 12);
   }
 
   generatePlayerTexture() {

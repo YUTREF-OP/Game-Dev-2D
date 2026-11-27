@@ -1,11 +1,30 @@
-// UIScene: HUD running in parallel with WorldScene. It only listens to the
-// global event bus (game.events) and never reaches into world entities.
+// UIScene: HUD and touchscreen controller, running in parallel with WorldScene.
+// It listens to the global event bus (game.events) for player status and
+// writes touch input into the shared InputSystem ('virtualInput' in the
+// registry). It never reaches into world entities.
+//
+// Touch layout (mobile is the primary platform):
+//   left half  - floating joystick: appears under the thumb, 8-way
+//   right side - JUMP (hold for higher jumps) and DASH buttons
+//   top right  - fullscreen toggle (where the browser supports it)
 
 import { PALETTE } from './BootScene.js';
 import { PLAYER_STATE } from '../entities/Player.js';
 
 const BAR = Object.freeze({ x: 18, y: 6, w: 60, h: 5 });
 const DASH_BAR = Object.freeze({ x: 26, y: 27, w: 24, h: 3 });
+
+const TOUCH = Object.freeze({
+  STICK_ZONE_MAX_X: 160, // touches left of this spawn the joystick
+  STICK_RADIUS: 16, // max knob travel from the base centre
+  STICK_DEADZONE: 5, // px of travel before a direction registers
+  STICK_FOLLOW: 10, // extra px past the radius before the base follows the thumb
+  STICK_REST: Object.freeze({ x: 40, y: 140 }), // where the idle stick is shown
+  JUMP: Object.freeze({ x: 290, y: 148, hitRadius: 26 }),
+  DASH: Object.freeze({ x: 252, y: 158, hitRadius: 22 }),
+  IDLE_ALPHA: 0.4,
+  ACTIVE_ALPHA: 0.9,
+});
 
 const STATE_COLORS = Object.freeze({
   [PLAYER_STATE.IDLE]: PALETTE.silver,
@@ -38,8 +57,10 @@ export default class UIScene extends Phaser.Scene {
 
     this.banner = this.add.bitmapText(160, 64, 'pixel', '').setOrigin(0.5).setAlpha(0);
 
-    this.hint = this.add.bitmapText(160, 164, 'pixel',
-      'A/D OR ARROWS: MOVE   SPACE/W: JUMP   SHIFT: DASH\nDOWN+JUMP: DROP THROUGH   `: PHYSICS DEBUG')
+    this.createTouchControls();
+
+    this.hint = this.add.bitmapText(160, 44, 'pixel',
+      'DRAG LEFT SIDE: MOVE    BUTTONS: JUMP / DASH\nSTICK DOWN + JUMP: DROP THROUGH PLATFORMS')
       .setOrigin(0.5, 0)
       .setCenterAlign()
       .setTint(PALETTE.silver);
@@ -57,12 +78,193 @@ export default class UIScene extends Phaser.Scene {
       'checkpoint:activated': this.onCheckpoint,
     };
     Object.entries(listeners).forEach(([event, fn]) => bus.on(event, fn, this));
+    // Losing focus or hiding the tab must not leave a direction or button stuck.
+    bus.on(Phaser.Core.Events.BLUR, this.resetTouch, this);
+    bus.on(Phaser.Core.Events.HIDDEN, this.resetTouch, this);
     this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
       Object.entries(listeners).forEach(([event, fn]) => bus.off(event, fn, this));
+      bus.off(Phaser.Core.Events.BLUR, this.resetTouch, this);
+      bus.off(Phaser.Core.Events.HIDDEN, this.resetTouch, this);
+      this.vinput?.reset(); // HUD objects are already gone; just release the controller
     });
 
     // Ask the world to push the current player snapshot.
     bus.emit('ui:ready');
+  }
+
+  // --- Touch controls -------------------------------------------------------
+
+  createTouchControls() {
+    this.vinput = this.registry.get('virtualInput');
+    this.stickPointerId = null;
+    this.jumpPointerId = null;
+    this.dashPointerId = null;
+    this.stickOrigin = { ...TOUCH.STICK_REST };
+
+    const depth = 50;
+    this.stickBase = this.add.image(TOUCH.STICK_REST.x, TOUCH.STICK_REST.y, 'touch_stick_base')
+      .setDepth(depth).setAlpha(TOUCH.IDLE_ALPHA);
+    this.stickKnob = this.add.image(TOUCH.STICK_REST.x, TOUCH.STICK_REST.y, 'touch_stick_knob')
+      .setDepth(depth + 1).setAlpha(TOUCH.IDLE_ALPHA);
+    this.jumpButton = this.add.image(TOUCH.JUMP.x, TOUCH.JUMP.y, 'touch_btn_jump')
+      .setDepth(depth).setAlpha(TOUCH.IDLE_ALPHA);
+    this.dashButton = this.add.image(TOUCH.DASH.x, TOUCH.DASH.y, 'touch_btn_dash')
+      .setDepth(depth).setAlpha(TOUCH.IDLE_ALPHA);
+    this.jumpButton.setData('restY', TOUCH.JUMP.y);
+    this.dashButton.setData('restY', TOUCH.DASH.y);
+
+    this.fullscreenButton = null;
+    if (this.scale.fullscreen.available) {
+      this.fullscreenButton = this.add.image(302, 4, 'touch_btn_fullscreen')
+        .setOrigin(0).setDepth(depth).setAlpha(0.6);
+      // Phones usually allow an orientation lock only while fullscreen.
+      this.scale.on(Phaser.Scale.Events.ENTER_FULLSCREEN, this.lockLandscape, this);
+      this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
+        this.scale.off(Phaser.Scale.Events.ENTER_FULLSCREEN, this.lockLandscape, this);
+      });
+    }
+
+    this.input.on(Phaser.Input.Events.POINTER_DOWN, this.onPointerDown, this);
+    this.input.on(Phaser.Input.Events.POINTER_MOVE, this.onPointerMove, this);
+    this.input.on(Phaser.Input.Events.POINTER_UP, this.onPointerUp, this);
+    this.input.on(Phaser.Input.Events.POINTER_UP_OUTSIDE, this.onPointerUp, this);
+  }
+
+  /** Returns 'jump', 'dash' or null for the nearest button under (x, y). */
+  buttonAt(x, y) {
+    const dJump = Math.hypot(x - TOUCH.JUMP.x, y - TOUCH.JUMP.y);
+    const dDash = Math.hypot(x - TOUCH.DASH.x, y - TOUCH.DASH.y);
+    const inJump = dJump <= TOUCH.JUMP.hitRadius;
+    const inDash = dDash <= TOUCH.DASH.hitRadius;
+    if (inJump && inDash) return dJump <= dDash ? 'jump' : 'dash';
+    if (inJump) return 'jump';
+    if (inDash) return 'dash';
+    return null;
+  }
+
+  hitsFullscreenButton(x, y) {
+    if (!this.fullscreenButton) return false;
+    const b = this.fullscreenButton;
+    return x >= b.x - 6 && x <= b.x + b.width + 6 && y >= b.y - 6 && y <= b.y + b.height + 6;
+  }
+
+  onPointerDown(pointer) {
+    const { x, y } = pointer;
+    if (this.hitsFullscreenButton(x, y)) return; // toggled on pointer up (browser rule)
+
+    const button = this.buttonAt(x, y);
+    if (button === 'jump') {
+      if (this.jumpPointerId === null) {
+        this.jumpPointerId = pointer.id;
+        this.vinput.pressJump();
+        this.setButtonPressed(this.jumpButton, true);
+      }
+      return;
+    }
+    if (button === 'dash') {
+      if (this.dashPointerId === null) {
+        this.dashPointerId = pointer.id;
+        this.vinput.pressDash();
+        this.setButtonPressed(this.dashButton, true);
+      }
+      return;
+    }
+
+    if (x < TOUCH.STICK_ZONE_MAX_X && this.stickPointerId === null) {
+      this.stickPointerId = pointer.id;
+      this.stickOrigin = { x: Phaser.Math.Clamp(x, 22, 200), y: Phaser.Math.Clamp(y, 22, 158) };
+      this.stickBase.setPosition(Math.round(this.stickOrigin.x), Math.round(this.stickOrigin.y));
+      this.stickBase.setAlpha(TOUCH.ACTIVE_ALPHA);
+      this.stickKnob.setAlpha(TOUCH.ACTIVE_ALPHA);
+      this.updateStick(x, y);
+    }
+  }
+
+  onPointerMove(pointer) {
+    if (pointer.id === this.stickPointerId) this.updateStick(pointer.x, pointer.y);
+  }
+
+  onPointerUp(pointer) {
+    if (pointer.id === this.stickPointerId) {
+      this.releaseStick();
+    } else if (pointer.id === this.jumpPointerId) {
+      this.jumpPointerId = null;
+      this.vinput.releaseJump();
+      this.setButtonPressed(this.jumpButton, false);
+    } else if (pointer.id === this.dashPointerId) {
+      this.dashPointerId = null;
+      this.setButtonPressed(this.dashButton, false);
+    } else if (this.hitsFullscreenButton(pointer.x, pointer.y)) {
+      this.toggleFullscreen();
+    }
+  }
+
+  updateStick(x, y) {
+    let dx = x - this.stickOrigin.x;
+    let dy = y - this.stickOrigin.y;
+    let dist = Math.hypot(dx, dy);
+
+    // Let the base trail a thumb that slides far past the ring.
+    const followAt = TOUCH.STICK_RADIUS + TOUCH.STICK_FOLLOW;
+    if (dist > followAt) {
+      const shift = (dist - followAt) / dist;
+      this.stickOrigin.x = Phaser.Math.Clamp(this.stickOrigin.x + dx * shift, 22, 200);
+      this.stickOrigin.y = Phaser.Math.Clamp(this.stickOrigin.y + dy * shift, 22, 158);
+      this.stickBase.setPosition(Math.round(this.stickOrigin.x), Math.round(this.stickOrigin.y));
+      dx = x - this.stickOrigin.x;
+      dy = y - this.stickOrigin.y;
+      dist = Math.hypot(dx, dy);
+    }
+
+    const clamp = dist > TOUCH.STICK_RADIUS ? TOUCH.STICK_RADIUS / dist : 1;
+    this.stickKnob.setPosition(
+      Math.round(this.stickOrigin.x + dx * clamp),
+      Math.round(this.stickOrigin.y + dy * clamp),
+    );
+
+    if (dist < TOUCH.STICK_DEADZONE) {
+      this.vinput.setAxis(0, 0);
+      return;
+    }
+    // Snap to 8 directions: horizontal drags run, near-vertical drags aim dashes / drop.
+    const angle = Math.round(Math.atan2(dy, dx) / (Math.PI / 4)) * (Math.PI / 4);
+    this.vinput.setAxis(Math.round(Math.cos(angle)), Math.round(Math.sin(angle)));
+  }
+
+  releaseStick() {
+    this.stickPointerId = null;
+    this.vinput.setAxis(0, 0);
+    this.stickOrigin = { ...TOUCH.STICK_REST };
+    this.stickBase.setPosition(TOUCH.STICK_REST.x, TOUCH.STICK_REST.y).setAlpha(TOUCH.IDLE_ALPHA);
+    this.stickKnob.setPosition(TOUCH.STICK_REST.x, TOUCH.STICK_REST.y).setAlpha(TOUCH.IDLE_ALPHA);
+  }
+
+  setButtonPressed(button, pressed) {
+    // A 1px press-down plus brighter alpha; no scaling, so pixels stay crisp.
+    button.setAlpha(pressed ? TOUCH.ACTIVE_ALPHA : TOUCH.IDLE_ALPHA);
+    button.y = button.getData('restY') + (pressed ? 1 : 0);
+  }
+
+  resetTouch() {
+    if (!this.vinput) return;
+    this.vinput.reset();
+    this.releaseStick();
+    this.jumpPointerId = null;
+    this.dashPointerId = null;
+    this.setButtonPressed(this.jumpButton, false);
+    this.setButtonPressed(this.dashButton, false);
+  }
+
+  toggleFullscreen() {
+    if (this.scale.isFullscreen) this.scale.stopFullscreen();
+    else this.scale.startFullscreen();
+  }
+
+  lockLandscape() {
+    const orientation = window.screen && window.screen.orientation;
+    if (orientation && typeof orientation.lock === 'function') {
+      orientation.lock('landscape').catch(() => { /* not supported here; the CSS rotate hint covers it */ });
+    }
   }
 
   // --- Event handlers -------------------------------------------------------

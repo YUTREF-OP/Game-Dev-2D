@@ -198,6 +198,7 @@ export default class WorldScene extends Phaser.Scene {
 
     this.player = new Player(this, this.spawnPoint.x, this.spawnPoint.y, {
       canDropThrough: () => this.isStandingOnlyOnPlatforms(),
+      virtualInput: this.registry.get('virtualInput'),
     });
 
     // Ignore one-way platforms while the player is dropping through them.

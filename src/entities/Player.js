@@ -2,6 +2,10 @@
 // height, coyote time, jump buffering, one-way platform drop-through and an
 // 8-directional dash with invulnerability frames.
 //
+// Input comes from two sources that are merged every frame: the touchscreen
+// virtual controller (InputSystem, written by UIScene; the primary controller on
+// mobile) and the keyboard (desktop development fallback).
+//
 // The player never touches UI code. It reports changes on the global event bus
 // (scene.game.events) and UIScene listens:
 //   'player:hp'    (hp, maxHp)
@@ -29,6 +33,7 @@ export const PLAYER_TUNING = Object.freeze({
 
   JUMP_VELOCITY: 320,
   JUMP_CUT_MULTIPLIER: 0.45, // vertical speed kept when jump is released early
+  JUMP_MIN_HOLD_MS: 70, // a quick touch tap still gives a usable hop
   APEX_THRESHOLD: 40, // |vy| below this while holding jump = floaty apex
   APEX_GRAVITY_EXTRA: -350, // added to world gravity at the apex
   FALL_GRAVITY_EXTRA: 600, // added to world gravity while falling
@@ -72,6 +77,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
    * @param {object} [options]
    * @param {() => boolean} [options.canDropThrough] returns true when the player
    *        is standing only on one-way platforms (supplied by the level).
+   * @param {import('../systems/InputSystem.js').default} [options.virtualInput]
+   *        shared touch-controller state (supplied by the scene from the registry).
    */
   constructor(scene, x, y, options = {}) {
     super(scene, x, y, 'player', 'idle0');
@@ -80,6 +87,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
     this.bus = scene.game.events;
     this.canDropThrough = options.canDropThrough ?? (() => false);
+    this.virtualInput = options.virtualInput ?? null;
 
     this.setDepth(10);
     this.body.setSize(8, 21);
@@ -110,6 +118,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     this.lastGroundedAt = -Infinity;
     this.jumpBufferedAt = -Infinity;
     this.jumpCutAvailable = false;
+    this.jumpStartedAt = -Infinity;
     this.dashEndsAt = 0;
     this.dashReadyAt = 0;
     this.nextGhostAt = 0;
@@ -216,7 +225,11 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   // --- Frame update ---------------------------------------------------------
 
   update(time, delta) {
-    if (!this.body.enable) return;
+    if (!this.body.enable) {
+      // Frozen (respawn fade): drop taps so they don't fire after respawning.
+      this.virtualInput?.clearPresses();
+      return;
+    }
 
     const dt = Math.min(delta, 50) / 1000; // clamp so a lag spike can't teleport us
     const body = this.body;
@@ -249,27 +262,32 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
 
   readInput(time) {
     const k = this.keys;
+    const v = this.virtualInput;
     const JustDown = Phaser.Input.Keyboard.JustDown;
-    // Evaluate every JustDown so no key's "just pressed" flag leaks into the next frame.
-    const jumpPressed = [JustDown(k.space), JustDown(k.w), JustDown(k.up)].some(Boolean);
-    const dashPressed = JustDown(k.shift);
+
+    // Read (and so consume) every press flag each frame, even while stunned,
+    // so no stale press leaks into a later frame.
+    const keyJump = [JustDown(k.space), JustDown(k.w), JustDown(k.up)].some(Boolean);
+    const keyDash = JustDown(k.shift);
+    const touchJump = v ? v.consumeJumpPressed() : false;
+    const touchDash = v ? v.consumeDashPressed() : false;
 
     if (time < this.stunnedUntil) {
       return { x: 0, y: 0, jumpPressed: false, jumpHeld: false, dashPressed: false, down: false };
     }
 
-    const left = k.left.isDown || k.a.isDown;
-    const right = k.right.isDown || k.d.isDown;
-    const up = k.up.isDown || k.w.isDown;
-    const down = k.down.isDown || k.s.isDown;
+    const keyX = (k.right.isDown || k.d.isDown ? 1 : 0) - (k.left.isDown || k.a.isDown ? 1 : 0);
+    const keyY = (k.down.isDown || k.s.isDown ? 1 : 0) - (k.up.isDown || k.w.isDown ? 1 : 0);
+    const x = Phaser.Math.Clamp(keyX + (v ? v.axisX : 0), -1, 1);
+    const y = Phaser.Math.Clamp(keyY + (v ? v.axisY : 0), -1, 1);
 
     return {
-      x: (right ? 1 : 0) - (left ? 1 : 0),
-      y: (down ? 1 : 0) - (up ? 1 : 0),
-      jumpPressed,
-      jumpHeld: k.space.isDown || k.w.isDown || k.up.isDown,
-      dashPressed,
-      down,
+      x,
+      y,
+      jumpPressed: keyJump || touchJump,
+      jumpHeld: k.space.isDown || k.w.isDown || k.up.isDown || (v ? v.jumpHeld : false),
+      dashPressed: keyDash || touchDash,
+      down: y > 0,
     };
   }
 
@@ -305,7 +323,8 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
     }
 
     // Variable jump height: releasing jump while rising cuts the ascent.
-    if (this.jumpCutAvailable && !input.jumpHeld && body.velocity.y < 0) {
+    if (this.jumpCutAvailable && !input.jumpHeld && body.velocity.y < 0
+      && time - this.jumpStartedAt >= T.JUMP_MIN_HOLD_MS) {
       body.setVelocityY(body.velocity.y * T.JUMP_CUT_MULTIPLIER);
       this.jumpCutAvailable = false;
     }
@@ -322,6 +341,7 @@ export default class Player extends Phaser.Physics.Arcade.Sprite {
   }
 
   jump() {
+    this.jumpStartedAt = this.scene.time.now;
     this.body.setVelocityY(-T.JUMP_VELOCITY);
     this.jumpBufferedAt = -Infinity;
     this.lastGroundedAt = -Infinity; // consume coyote time so it can't double-jump

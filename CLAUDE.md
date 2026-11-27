@@ -9,6 +9,13 @@
 * **Zero-Build Architecture:** Use standard HTML5, CSS3, and native ES6 JavaScript modules (`type="module"`) with **Phaser 3 loaded via CDN**. Do NOT introduce npm, Webpack, Vite, or TypeScript build steps—the repository must run directly as a static site on **GitHub Pages**.
 * **Relative Paths Only (Critical):** GitHub Pages serves repositories from a subdirectory (`/<repo-name>/`). Always use relative paths (`./src/main.js`, `./data/game_constants.json`, `./assets/...`) and NEVER leading-slash root paths (`/src/...` or `/data/...`), which cause 404 errors on GitHub Pages.
 
+## 2a. Target Platform & Controls (Mobile-First)
+* **Game Format:** The game is a **320x180 Phaser 3 side-scroller**. Where `GDD.md` describes other perspectives, engines, or platforms (e.g., isometric turn-based grid, PC), this rule wins: adapt those systems to the side-scroller format.
+* **Platform:** Mobile phones in **landscape**, played in the browser (GitHub Pages) or installed via "Add to Home Screen" (`manifest.webmanifest`). Portrait shows a rotate-device overlay.
+* **Primary Input = Touchscreen:** A floating virtual joystick on the left half of the screen and on-screen action buttons on the right (currently JUMP and DASH), drawn in `UIScene.js`. Every new action must get a touch control; never ship a mechanic that needs a keyboard.
+* **Input Architecture:** `UIScene.js` writes touch state into the shared `InputSystem` (`src/systems/InputSystem.js`, stored in the registry as `virtualInput`); entities only read from it. The keyboard stays enabled as a desktop development fallback.
+* **Touch Ergonomics:** Keep buttons at least 32 px (base resolution) with generous hit radii, support at least 3 simultaneous touches, and keep HUD readouts clear of the thumb zones (bottom-left and bottom-right).
+
 ## 3. Pixel Art & Rendering Standards
 * **Base Resolution:** `320x180` (16:9), scaled via `Phaser.Scale.FIT` and `Phaser.Scale.CENTER_BOTH`.
 * **Crisp Pixel Enforcement:** Always keep `pixelArt: true`, `antialias: false`, and `roundPixels: true` in the Phaser game config, and `image-rendering: pixelated;` in CSS. Never apply blurry smoothing or fractional camera scaling.
@@ -20,7 +27,7 @@ Maintain the exact directory layout defined in `GDD.md`:
 * `src/main.js` — Phaser config and scene registration
 * `src/scenes/` — `BootScene.js`, `WorldScene.js`, `UIScene.js`
 * `src/entities/` — `Player.js`, `Enemy.js`, `NPC.js`
-* `src/systems/` — `CombatSystem.js`, `InventorySystem.js`, `SaveSystem.js`
+* `src/systems/` — `InputSystem.js`, `CombatSystem.js`, `InventorySystem.js`, `SaveSystem.js`
 * `data/` — `game_constants.json`, `player_pilot_and_tank.json`, `weapons_and_systems.json`, `monsters_starter_roster.json`, `monsters_roster.json`, `world_factions_and_swarms.json`, `salvage_and_economy.json` (see GDD.md section 7)
 * `assets/` — `sprites/`, `tilesets/`, `audio/`
 
